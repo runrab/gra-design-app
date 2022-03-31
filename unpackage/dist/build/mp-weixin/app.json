@@ -1,0 +1,73 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/basics/layout",
+        "pages/basics/background",
+        "pages/basics/text",
+        "pages/basics/icon",
+        "pages/basics/button",
+        "pages/basics/design",
+        "pages/basics/tag",
+        "pages/basics/avatar",
+        "pages/basics/progress",
+        "pages/basics/shadow",
+        "pages/basics/loading",
+        "pages/component/bar",
+        "pages/component/nav",
+        "pages/component/list",
+        "pages/component/card",
+        "pages/component/form",
+        "pages/component/timeline",
+        "pages/component/chat",
+        "pages/component/swiper",
+        "pages/component/modal",
+        "pages/component/steps",
+        "pages/plugin/indexes",
+        "pages/plugin/animation",
+        "pages/plugin/drawer",
+        "pages/plugin/verticalnav",
+        "pages/home/home",
+        "pages/login/login",
+        "pages/user/userexit",
+        "pages/user/userdetail",
+        "pages/user/useredit",
+        "pages/user/people",
+        "pages/common/exit",
+        "pages/common/success",
+        "pages/user/location",
+        "pages/addressbook/address-book",
+        "pages/addressbook/level-address-book",
+        "pages/addressbook/member",
+        "pages/addressbook/address-detail",
+        "pages/annotation/annotationList",
+        "pages/annotation/annotationDetail",
+        "pages/common/helloWorld",
+        "pages/common/infoin",
+        "pages/common/message"
+    ],
+    "subPackages": [],
+    "window": {
+        "navigationBarBackgroundColor": "#0081ff",
+        "navigationBarTitleText": "毕业生就业去向 App",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "有定位功能需要导航定位"
+        }
+    },
+    "usingComponents": {
+        "home": "/pages/home/home",
+        "people": "/pages/user/people",
+        "my-select": "/components/my-componets/my-select",
+        "my-image-upload": "/components/my-componets/my-image-upload",
+        "my-page": "/components/my-componets/my-page",
+        "basics": "/pages/basics/home",
+        "components": "/pages/component/home",
+        "plugin": "/pages/plugin/home",
+        "cu-custom": "/plugin/colorui/components/cu-custom"
+    },
+    "sitemapLocation": "sitemap.json",
+"lazyCodeLoading": "requiredComponents"
+}
