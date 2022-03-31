@@ -1,3 +1,6 @@
 .hbuilderx
 unpackage/
 .idea/
+*.iml
+*.cmd
+*.imi
