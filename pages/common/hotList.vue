@@ -2,8 +2,7 @@
 	<view>
 		<scroll-view scroll-y class="page">
 			<cu-custom bgColor="bg-gradual-pink" :isBack="true">
-				<block slot="backText">返回</block>
-				<block slot="content">热门城市排行榜</block>
+				<block slot="content">热门城市排行</block>
 			</cu-custom>
 			<view class="cu-list menu" v-for="(item,index) in list" :key="index">
 				<view class="cu-item animation-slide-bottom" > 

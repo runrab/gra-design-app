@@ -1,7 +1,6 @@
 <template>
     <view>
-		<cu-custom :bgColor="NavBarColor" isBack :backRouterName="backRouteName">
-			<block slot="backText">返回</block>
+		<cu-custom bgColor="bg-gradual-pink" :isBack="true">
 			<block slot="content">学生新增</block>
 		</cu-custom>
 		 <!--表单区域-->
@@ -49,18 +48,17 @@
 			      <input  placeholder="xx大学-xx学院-x班" v-model="model."/>
 			    </view>
 			  </view> -->
-			  
 			  <view class="cu-form-group">
 				  <view class="flex align-center">
 				  	<app-select label="性别：" v-model="model.sex" placeholder="请选择性别" :dict="plan_type" space ></app-select>
 				  </view>
 			  </view>
+			  <view class="padding flex flex-direction">
+			  	<button class="cu-btn bg-green shadow-blur round lg" @click="onSubmit">
+			  		<text v-if="loading" class="cuIcon-loading2 cuIconfont-spin"></text>提交
+			  	</button>
+			  </view>
 			</form>
-			<view class="padding">
-				<button class="cu-btn block bg-blue margin-tb-sm lg" @click="onSubmit">
-					<text v-if="loading" class="cuIcon-loading2 cuIconfont-spin"></text>提交
-				</button>
-			</view>
 		</view>
     </view>
 </template>

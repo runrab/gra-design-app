@@ -1,29 +1,25 @@
 <template>
     <view>
-		<cu-custom :bgColor="NavBarColor" isBack :backRouterName="backRouteName">
-			<block slot="backText">返回</block>
-			<block slot="content">留言板</block>
+		<cu-custom bgColor="bg-gradual-pink" :isBack="true">
+			<block slot="content">信息填写</block>
 		</cu-custom>
 		 <!--表单区域-->
 		<view>
 			<form>
-              <view class="cu-form-group">
-                <view class="flex align-center">
-                  <view class="title"><text space="ensp">消息内容：</text></view>
-                  <input  placeholder="请输入消息内容" v-model="model.context"/>
-                </view>
-              </view>
-			  <view class="cu-form-group">
-				  <view class="flex align-center">
-				  	<app-select label="可见性：" v-model="visible" placeholder="请选择类型" :dict="plan_type" space ></app-select>
-				  </view>
-			  </view>
+				<view class="cu-form-group">
+				<view class="flex align-center">
+						<app-select label="可见性：" v-model="visible" placeholder="请选择类型" :dict="plan_type" space ></app-select>
+				 </view>
+				</view>
+				 <view class="cu-form-group">
+					 <textarea placeholder="请填写留言信息" v-model="model.context" auto-height="true"> </textarea>
+				</view>
+				<view class="padding flex flex-direction">
+					<button class="cu-btn bg-green shadow-blur round lg" @click="onSubmit">
+						<text v-if="loading" class="cuIcon-loading2 cuIconfont-spin"></text>提交
+					</button>
+				</view>
 			</form>
-			<view class="padding">
-				<button class="cu-btn block bg-blue margin-tb-sm lg" @click="onSubmit">
-					<text v-if="loading" class="cuIcon-loading2 cuIconfont-spin"></text>提交
-				</button>
-			</view>
 		</view>
     </view>
 </template>
@@ -101,3 +97,33 @@
         }
     }
 </script>
+
+<style lang="scss">
+
+	.example {
+		padding: 15px;
+		background-color: #fff;
+	}
+
+	.segmented-control {
+		margin-bottom: 15px;
+	}
+
+	.button-group {
+		margin-top: 15px;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.form-item {
+		display: flex;
+		align-items: center;
+	}
+
+	.button {
+		display: flex;
+		align-items: center;
+		height: 35px;
+		margin-left: 10px;
+	}
+</style>

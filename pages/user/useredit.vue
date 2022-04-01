@@ -48,7 +48,7 @@
 				<view class="title">邮箱</view>
 				<input placeholder="输入邮箱" name="input"  v-model="myFormData.email"></input>
 			</view>
-			<view class="cu-form-group" v-if="2>1">
+			<view class="cu-form-group" v-if="identitystu==0">
 				<view class="title">目的城市</view>
 				<input placeholder="输入目的城市" name="input"  v-model="myFormData.cityName"></input>
 			</view>
@@ -78,6 +78,7 @@
 					phone:'',
 					email:'',
 					id:'',
+					identitystu:'',
 					cityName:'',
 					visible:'',
 				},
@@ -110,6 +111,7 @@
 				  this.myFormData.status = 2
 				}
 				 this.Avatar=this.myFormData.avatar
+	
 	
 				Object.keys(this.myFormData).map(key=>{
 				  if(this.myFormData[key]=='无'){

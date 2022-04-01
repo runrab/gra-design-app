@@ -231,13 +231,8 @@
             "path" : "pages/common/stuedit",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
 			}
         }
-		
-		
-
         ,{
             "path" : "pages/common/hotList",
             "style" :                                                                                    

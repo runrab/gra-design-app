@@ -65,8 +65,6 @@
 	import appSelect from '@/components/my-componets/appSelect.vue'
 	import myImageUpload from '@/components/my-componets/my-image-upload.vue'
 	import myDate from '@/components/my-componets/my-date.vue'
-	
-	
 	export default {
 		components:{
 		    appSelect,myImageUpload,myDate
@@ -108,10 +106,6 @@
 			}).catch(()=>{
 				this.loading = false
 			});
-			//提交完成重定向到首页
-			// uni.redirectTo({
-			// 	url:'/pages/index/index',
-			// })
 			}
 		}
 	}

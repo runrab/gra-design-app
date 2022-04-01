@@ -1,9 +1,8 @@
 <template>
     <view>
-		<cu-custom :bgColor="NavBarColor" isBack :backRouterName="backRouteName">
-			<block slot="backText">返回</block>
-			<block slot="content">密码重置</block>
-		</cu-custom>
+			<cu-custom bgColor="bg-gradual-pink" :isBack="true">
+				<block slot="content">密码重置</block>
+			</cu-custom>
 		 <!--表单区域-->
 		<view>
 			<form>
@@ -31,13 +30,12 @@
 			      <input  placeholder="请再次输入" v-model="model.confirmpassword"/>
 			    </view>
 			  </view>
-			  <view class="padding">
-			  	<button class="cu-btn block bg-blue margin-tb-sm lg" @click="onSubmit">
+			  <view class="padding flex flex-direction">
+			  	<button class="cu-btn bg-green shadow-blur round lg" @click="onSubmit">
 			  		<text v-if="loading" class="cuIcon-loading2 cuIconfont-spin"></text>提交
 			  	</button>
 			  </view>
 			</form>
-
 		</view>
     </view>
 </template>
