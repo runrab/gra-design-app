@@ -2,15 +2,18 @@
 	<view>
 		<home :cur="PageCur" v-if="PageCur=='home'" :key="commponent1Key"></home>
 		<people v-if="PageCur=='people'" :key="commponent2Key"></people>
+		<peoplelis v-if="PageCur=='peoplelis'" :key="commponent2Key"></peoplelis>
+		<annotationList v-if="PageCur=='annotationList'" :key="commponent3Key"></annotationList>
+		
 		<view class="cu-bar tabbar bg-white shadow foot">
 			<view :class="PageCur=='home'?'action text-green':'action text-gray'" @click="NavChange" data-cur="home">
 				<view class='cuIcon-homefill'></view>主页
 			</view>
 			<view :class="PageCur=='peoplelis'?'action text-green':'action text-gray'" @click="NavChange" data-cur="peoplelis">
-				<view class='cuIcon-peoplelist'></view>审批
+				<view class='cuIcon-peoplelist'></view>管理
 			</view>
-			<view :class="PageCur=='profile'?'action text-green':'action text-gray'" @click="NavChange" data-cur="profile">
-				<view class='cuIcon-profile'></view>发起
+			<view :class="PageCur=='annotationList'?'action text-green':'action text-gray'" @click="NavChange" data-cur="annotationList">
+				<view class='cuIcon-profile'></view>消息
 			</view>
 			<view :class="PageCur=='people'?'action text-green':'action text-gray'" @click="NavChange" data-cur="people">
 				<view class='cuIcon-people'></view>个人
@@ -26,12 +29,16 @@
 				PageCur: 'home',
 				commponent1Key: 0,
 				commponent2Key: 0,
+				commponent3Key: 0,
+				commponent4Key: 0,
 			}
 		},
 		onLoad:function(){
 			this.PageCur='home'
 			++this.commponent1Key
 			++this.commponent2Key
+			++this.commponent3Key
+			++this.commponent4Key
 		},
 		methods: {
 			NavChange: function(e) {

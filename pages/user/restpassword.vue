@@ -6,12 +6,12 @@
 		 <!--表单区域-->
 		<view>
 			<form>
-              <view class="cu-form-group">
+<!--              <view class="cu-form-group">
                 <view class="flex align-center">
                   <view class="title"><text space="ensp">用户名：</text></view>
                   <input  placeholder="请输入用户名" v-model="model.username"/>
                 </view>
-              </view>
+              </view> -->
               <view class="cu-form-group">
                 <view class="flex align-center">
                   <view class="title"><text space="ensp">旧密码：</text></view>

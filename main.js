@@ -29,6 +29,14 @@ Vue.component('home',home)
 import people from './pages/user/people.vue'
 Vue.component('people',people)
 
+// 新增 
+import peoplelis from './pages/home/peoplelis.vue'
+Vue.component('peoplelis',peoplelis)
+
+import annotationList from './pages/annotation/annotationList.vue'
+Vue.component('annotationList',annotationList)
+
+
 // 自定义组件
 import mySelect from './components/my-componets/my-select.vue'
 Vue.component('mySelect',mySelect)

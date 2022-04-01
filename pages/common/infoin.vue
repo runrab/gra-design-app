@@ -101,7 +101,8 @@
 			this.$http.post(url,myForm).then(res=>{
 			   console.log("res",res)
 			   this.loading = false
-			   this.$Router.push({name:this.backRouteName})
+			   this.$Router.push({name:'index'})
+			   // this.$Router.push({name:this.backRouteName})
 			   // console.log(this.$Router.push({name:this.backRouteName}))
 			}).catch(()=>{
 				this.loading = false

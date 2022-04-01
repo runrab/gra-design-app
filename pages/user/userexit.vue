@@ -30,7 +30,9 @@
 				],
 			}
 		},
-		methods: {}
+		methods: {
+			
+		}
 	}
 </script>
 

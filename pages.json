@@ -242,6 +242,13 @@
             }
             
         }
+        ,{
+            "path" : "pages/home/peoplelis",
+            "style" :                                                                                    
+            {
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"mp-alipay": {
@@ -261,7 +268,8 @@
 			"name": "表单", //模式名称
 			"path": "pages/index/index", //启动页面
 			"query": "" //启动参数
-		}]
+		}
+		]
 	}
 
 }

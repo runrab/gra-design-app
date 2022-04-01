@@ -1,7 +1,8 @@
 <template>
 	<view class="bg-white" >
-		<cu-custom :bgColor="NavBarColor" :isBack="true" backRouterName="index">
-			<block slot="backText">返回</block>
+		<!-- <cu-custom :bgColor="NavBarColor" :isBack="true" backRouterName="index"> -->
+<!-- 			<block slot="backText">返回</block> -->
+		<cu-custom :bgColor="NavBarColor">
 			<block slot="content">公告消息</block>
 		</cu-custom>
 		<view class="container">

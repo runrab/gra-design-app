@@ -24,13 +24,16 @@ export const us = {
       description:"发现新工作",
       useCount:10000,
 	  page:'zhaopindetail'
-    },{
-      title:"招聘发布",
-      icon:icon_prefix+"kaoqin.png",
-      description:"寻找更多人才",
-      useCount:10000,
-	  page:'zhaopin'
-    },{
+    },
+	// {
+ //      title:"招聘发布",
+ //      icon:icon_prefix+"kaoqin.png",
+ //      description:"寻找更多人才",
+ //      useCount:10000,
+	//   page:'zhaopin'
+ //    },
+	
+	{
       title:"发布留言",
       icon:icon_prefix+"richeng.png",
       description:"发布留言",
@@ -42,13 +45,15 @@ export const us = {
       description:"留言板",
       useCount:10000,
 	  page:'messagedetail'
-    },{
-      title:"管理后台",
-      icon:icon_prefix+"qingjia1.png",
-      description:"管理后台",
-      useCount:10000,
-	  page:'helloWorld'
-    },{
+    },
+	// {
+ //      title:"管理后台",
+ //      icon:icon_prefix+"qingjia1.png",
+ //      description:"管理后台",
+ //      useCount:10000,
+	//   page:'helloWorld'
+ //    },
+	{
 	  title:"个人信息修改",
 	  icon:icon_prefix+"chuchai.png",
 	  description:"个人信息修改",
@@ -89,12 +94,68 @@ export const us = {
  //    }
   ]
 }
-
-
 /**
  * other server 其他服务
  */
 export const os = {
+  data:[
+   //  {
+   //    title:"学生信息管理",
+   //    icon:icon_prefix+"xinwen.png",
+   //    description:"学生信息管理",
+   //    useCount:10000,
+	  // page:'stuinfo'
+   //  },{
+   //    title:"学生信息添加",
+   //    icon:icon_prefix+"toupiao.png",
+   //    description:"学生信息添加",
+   //    useCount:10000,
+	  // page:'stucreate'
+   //  },{
+   //    title:"学生信息修改",
+   //    icon:icon_prefix+"renwu.png",
+   //    description:"学生信息修改",
+   //    useCount:10000,
+	  // page:'stuedit'
+   //  },
+	{
+      title:"文档中心",
+      icon:icon_prefix+"wendang.png",
+      description:"文档中心",
+      useCount:10000,
+	  page:'stuedit'
+    },{
+      title:"密码修改",
+      icon:icon_prefix+"hetong.png",
+      description:"密码修改",
+      useCount:10000,
+	  page:'restpassword'
+    },
+	// {
+ //      title:"身份切换",
+ //      icon:icon_prefix+"huiyi.png",
+ //      description:"身份切换",
+ //      useCount:10000,
+	//   page:'login',
+ //    },
+	{
+      title:"客户关系",
+      icon:icon_prefix+"tongzhi.png",
+      description:"客户关系",
+      useCount:10000,
+	  page:'helloWorld'
+    },{
+      title:"定位",
+      icon:icon_prefix+"tongzhi.png",
+      description:"定位",
+      useCount:10000,
+	  page:'location'
+    }
+  ]
+}
+
+//教师专用服务
+export const tea = {
   data:[
     {
       title:"学生信息管理",
@@ -114,18 +175,34 @@ export const os = {
       description:"学生信息修改",
       useCount:10000,
 	  page:'stuedit'
+    },
+	{
+	  title:"招聘发布",
+	  icon:icon_prefix+"kaoqin.png",
+	  description:"寻找更多人才",
+	  useCount:10000,
+	  page:'zhaopin'
+	},
+	{
+	  title:"管理后台",
+	  icon:icon_prefix+"qingjia1.png",
+	  description:"管理后台",
+	  useCount:10000,
+	  page:'helloWorld'
+	},
+	
+	{
+      title:"发布留言",
+      icon:icon_prefix+"richeng.png",
+      description:"发布留言",
+      useCount:10000,
+	  page:'message'
     },{
       title:"文档中心",
       icon:icon_prefix+"wendang.png",
       description:"文档中心",
       useCount:10000,
 	  page:'stuedit'
-    },{
-      title:"密码修改",
-      icon:icon_prefix+"hetong.png",
-      description:"密码修改",
-      useCount:10000,
-	  page:'restpassword'
     },{
       title:"身份切换",
       icon:icon_prefix+"huiyi.png",
@@ -147,3 +224,4 @@ export const os = {
     }
   ]
 }
+
