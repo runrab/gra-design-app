@@ -106,7 +106,8 @@
 				announcement2:[],
 				msg2Count:"",
 				msg2Title:"",
-				url:"/sys/sysAnnouncementSend/getMyAnnouncementSend",
+				// url:"/sys/sysAnnouncementSend/getMyAnnouncementSend",
+				url:"/sys/sysAnnouncementSend/getMyAnnouncementSendMsg", //合并组织 个人消息 取消分页
 				delUrl:'/sys/sysAnnouncementSend/delete',
 				listTouchStart: 0,
 			    modalName: null,
@@ -143,8 +144,9 @@
 				if(keyword == 0){
 					this.$http.get(this.url,{params:{pageNo: page.num, pageSize:page.size,msgCategory: '1'}}).then(res=>{
 						//联网成功的回调,隐藏下拉刷新和上拉加载的状态;
-						
-						this.announcement1 = res.data.result.records
+						// this.announcement1 = res.data.result.records  
+						this.announcement1 = res.data.result  //不分页导致层级变了
+						console.log(res.data.result)
 						this.mescroll.endSuccess(this.announcement1.length);
 						//console.log("url", res)
 						//设置列表数据
