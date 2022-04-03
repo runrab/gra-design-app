@@ -188,6 +188,24 @@ const routes = [
 	        title: '学生信息修改',
 	    },
 	},{
+	    path: '/pages/common/showStaticInfo',
+	    name: 'showStaticInfo',
+	    meta: {
+	        title: '信息统计',
+	    },
+	},{
+	    path: '/pages/common/showEcharts',
+	    name: 'showEcharts',
+	    meta: {
+	        title: '数据分析',
+	    },
+	},{
+	    path: '/pages/common/releaseInfo',
+	    name: 'releaseInfo',
+	    meta: {
+	        title: '发布通告',
+	    },
+	},{
 	    path: '/pages/common/hotList',
 	    name: 'hotList',
 	    meta: {

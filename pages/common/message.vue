@@ -12,7 +12,7 @@
 				 </view>
 				</view>
 				 <view class="cu-form-group">
-					 <textarea placeholder="请填写留言信息" v-model="model.context" auto-height="true"> </textarea>
+					 <textarea placeholder="请填写留言信息" v-model="model.context"> </textarea>
 				</view>
 				<view class="padding flex flex-direction">
 					<button class="cu-btn bg-green shadow-blur round lg" @click="onSubmit">

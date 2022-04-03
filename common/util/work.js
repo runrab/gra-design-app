@@ -221,7 +221,26 @@ export const tea = {
       description:"定位",
       useCount:10000,
 	  page:'location'
+    },{
+      title:"信息统计",
+      icon:icon_prefix+"tongzhi.png",
+      description:"信息统计",
+      useCount:10000,
+	  page:'showStaticInfo'
+    },{
+      title:"数据分析",
+      icon:icon_prefix+"tongzhi.png",
+      description:"数据分析",
+      useCount:10000,
+	  page:'showEcharts'
+    },{
+      title:"发布通告",
+      icon:icon_prefix+"tongzhi.png",
+      description:"发布通告",
+      useCount:10000,
+	  page:'releaseInfo'
     }
+	
   ]
 }
 

@@ -8,7 +8,7 @@
 		<view>
 			<form>
 			  <view class="cu-form-group">
-			  	 <textarea placeholder="请输入发布内容" v-model="model.context" auto-height="true"> </textarea>
+			  	 <textarea placeholder="请输入发布内容" v-model="model.context" > </textarea>
 			  </view>	
 			</form>
 			<view class="padding flex flex-direction">

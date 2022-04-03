@@ -1,0 +1,157 @@
+<template>
+    <view>
+		<cu-custom bgColor="bg-gradual-pink" :isBack="true">
+			<block slot="content">发布公告</block>
+		</cu-custom>
+		 <!--表单区域-->
+		<view>
+			<form>
+				<view class="cu-form-group">
+				  <textarea placeholder="请填写标题" v-model="model.titile"> </textarea>	
+				</view>
+<!-- 				<view class="padding flex flex-direction">
+				  <my-date label="结束时间：" v-model="model.endTime" placeholder="请选择开始时间" required fields="minute"></my-date>
+				</view> -->
+				<view class="cu-form-group">
+					<textarea placeholder="请填写留言信息" v-model="model.msgAbstract"> </textarea>	
+				</view>
+<!-- 				<view class="cu-form-group">
+				<textarea placeholder="请填写留言信息" v-model="model.msgContent"> </textarea>	
+				</view> -->
+<!-- 				<view class="cu-form-group">
+				<textarea placeholder="优先级" v-model="model.priority"> </textarea>	
+				</view> -->
+<!-- 				<view class="cu-form-group">
+						<app-select label="发布类型：" v-model="model.msgType" placeholder="请选择类型" :dict="plan_type" space ></app-select>
+				 </view> -->
+				<view class="padding flex flex-direction">
+					<button class="cu-btn bg-green shadow-blur round lg" @click="onSubmit">
+						<text v-if="loading" class="cuIcon-loading2 cuIconfont-spin"></text>提交
+					</button>
+				</view>
+			</form>
+		</view>
+    </view>
+</template>
+
+<script>
+	const plan_type = [{text:'全体',value:'ORG'},{text:'指定用户',value:'USER'}];
+    import myDate from '@/components/my-componets/my-date.vue'
+	import appSelect from '@/components/my-componets/appSelect.vue'
+
+    export default {
+        name: "releaseInfo",
+        components:{myDate,appSelect},
+        props:{
+          formData:{
+              type:Object,
+              default:()=>{},
+              required:false
+          },
+        },
+        data(){
+            return {
+				CustomBar: this.CustomBar,
+				NavBarColor: this.NavBarColor,
+				loading:false,
+                model: {},
+				sendTime:'',
+				pushForm:{},
+				plan_type,
+				visible:'',
+                backRouteName:'index',
+                url: {
+                  add: "/sys/annountCement/appAdd",
+                  push: "/sys/annountCement/doReleaseData",
+                },
+            }
+        },
+        created(){
+             this.initFormData();
+        },
+        methods:{
+           initFormData(){
+               // if(this.formData){
+               //      let dataId = this.formData.dataId;
+               //      this.$http.get(this.url.queryById,{params:{id:dataId}}).then((res)=>{
+               //          if(res.data.success){
+               //              console.log("表单数据",res);
+               //              this.model = res.data.result;
+               //          }
+               //      })
+               //  }
+            },
+            onSubmit() {
+                let myForm = {...this.model};
+                this.loading = true;
+                // let url = myForm.id?this.url.edit:this.url.add;
+				let url = this.url.add;
+					// "endTime": 1651216501000,
+					// "msgAbstract": "bbbb",
+					// "msgCategory": "1",
+					// "msgContent": "<p>bbbb</p>",
+					// "msgType": "USER",
+					// "priority": "H",
+					// "titile": "bbbb",
+				myForm.msgContent=this.model.msgAbstract
+				// myForm.userIds="429376197808194306,"
+				myForm.userIds=this.$store.getters.userid+','
+				myForm.priority="H"
+				myForm.msgCategory="1"
+				myForm.endTime=1651216501000
+				myForm.sendTime=1651216501000  
+				myForm.sendStatus="1"
+				myForm.sender=this.$store.getters.username
+				this.sendTime=1651216501000  
+				myForm.msgType="ORG"
+				this.$http.post(url,myForm).then(res=>{
+				   this.loading = false
+				   // this.$Router.push({name:'annotationList'})
+				});
+				let urlPush = this.url.push;
+				//发布消息
+				this.pushForm.sendTime=this.sendTime
+				this.pushForm.createBy=this.$store.getters.username
+				console.log("111111!")
+				this.$http.post(urlPush,pushForm).then(res=>{
+				   this.loading = false
+				   this.$Router.push({name:'index'})
+				   console.log("sucess!")
+				}).catch(()=>{
+					this.loading = false
+				});
+				
+            }
+        }
+    }
+</script>
+
+<style lang="scss">
+
+	.example {
+		padding: 15px;
+		background-color: #fff;
+	}
+
+	.segmented-control {
+		margin-bottom: 15px;
+	}
+
+	.button-group {
+		margin-top: 15px;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.form-item {
+		display: flex;
+		align-items: center;
+	}
+
+	.button {
+		display: flex;
+		align-items: center;
+		height: 35px;
+		margin-left: 10px;
+	}
+</style>
