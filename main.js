@@ -8,6 +8,8 @@ import configService from'./common/service/config.service.js'
 import router from './common/router'
 import {RouterMount} from './plugin/uni-simple-router/index.js'
 
+
+
 // 注册缓存器
 Vue.use(MinCache,{timeout: 6})
 

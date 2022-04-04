@@ -61,7 +61,7 @@
 		<!-- 登录加载弹窗 -->
 		<view class="cu-load load-modal" v-if="loading">
 			<!-- <view class="cuIcon-emojifill text-orange"></view> -->
-			<image src="https://static.jeecg.com/upload/test/login4_1595818039175.png" mode="aspectFit" class="round"></image>
+			<image src="https://img.runrab.com/i/2022/03/20/6236e926318ab.png" mode="aspectFit" class="round"></image>
 			<view class="gray-text">登录中...</view>
 		</view>
     </view>
