@@ -1,5 +1,8 @@
 <template>
   <view class="content">
+	  <cu-custom bgColor="bg-gradual-pink" :isBack="true">
+	  	<block slot="content">组织信息统计</block>
+	  </cu-custom>
 	  <text> 填写进度</text>
 	  <view class="charts-box">
 	    <qiun-data-charts type="arcbar" :opts="{title:{name:progress,color:'#2fc25b',fontSize:35},subtitle:{name:'填写率',color:'#666666',fontSize:25}}" :chartData="chartsDataArcbar1"/>
