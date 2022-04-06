@@ -73,7 +73,7 @@
 		data() {
 			return {
 			 swiperList: [
-				  {id:1,type: 'image',url: '/static/banner/banner5.png', link: '/pages/common/infoin'},
+				  {id:1,type: 'image',url: '/static/banner/banner5.png', link: '/pages/common/showEcharts'},
 				  {id:2,type: 'image',url: '/static/banner/banner2.png', link: '/pages/common/zhaopindetail'},
 				  {id:3,type: 'image',url: '/static/banner/banner3.png', link: '/pages/common/hotList'},
 				  {id:4,type: 'image',url: '/static/banner/banner4.png', link: '/pages/common/messagedetail'},

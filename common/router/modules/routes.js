@@ -211,6 +211,12 @@ const routes = [
 	    meta: {
 	        title: '热门城市排行',
 	    },
+	},{
+	    path: '/pages/user/help',
+	    name: 'help',
+	    meta: {
+	        title: '帮助中心',
+	    },
 	},
 	
 	

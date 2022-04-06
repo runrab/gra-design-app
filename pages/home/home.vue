@@ -76,8 +76,8 @@
 				  {id:4,type: 'image',url: '/static/banner/banner4.png', link: '/pages/common/messagedetail'},
 				],
 				middleApps: [
-				  {icon: 'line2_icon1.png', title: '审批', 'text': '个人审批'},
-				  {icon: 'line2_icon2.png', title: '审批稿', 'text': '审批草稿箱'},
+				  {icon: 'line2_icon1.png', title: '管理', 'text': '管理'},
+				  {icon: 'line2_icon2.png', title: '消息', 'text': '消息'},
 				],
 				usList:us.data,
 				osList:os.data,

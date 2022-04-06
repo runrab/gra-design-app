@@ -17,7 +17,7 @@ export const us = {
       icon:icon_prefix+"zhoubao.png",
       description:"修改毕业去向信息",
       useCount:10000,
-	  page:'helloWorld'
+	  page:'userdetail'
     },{
       title:"招聘信息",
       icon:icon_prefix+"kaoqin.png",
@@ -119,11 +119,11 @@ export const os = {
 	  // page:'stuedit'
    //  },
 	{
-      title:"文档中心",
+      title:"帮助中心",
       icon:icon_prefix+"wendang.png",
-      description:"文档中心",
+      description:"帮助中心",
       useCount:10000,
-	  page:'stuedit'
+	  page:'help'
     },{
       title:"密码修改",
       icon:icon_prefix+"hetong.png",
@@ -198,11 +198,11 @@ export const tea = {
       useCount:10000,
 	  page:'message'
     },{
-      title:"文档中心",
+      title:"帮助中心",
       icon:icon_prefix+"wendang.png",
-      description:"文档中心",
+      description:"帮助中心",
       useCount:10000,
-	  page:'stuedit'
+	  page:'help'
     },{
       title:"身份切换",
       icon:icon_prefix+"huiyi.png",

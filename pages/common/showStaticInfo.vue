@@ -1,5 +1,11 @@
 <template>
   <view class="content">
+	  <text> 填写进度</text>
+	  <view class="charts-box">
+	    <qiun-data-charts type="arcbar" :opts="{title:{name:progress,color:'#2fc25b',fontSize:35},subtitle:{name:'填写率',color:'#666666',fontSize:25}}" :chartData="chartsDataArcbar1"/>
+	  </view>
+	  
+	  
     <!-- config-echarts.js中的seriesTemplate为option.series模板，可以作为series中的默认配置，:chartData.series中的配置如果有相同的，会覆盖掉 seriesTemplate 中的配置 -->
     <view class="charts-box">
       <!-- 如果发布到二级或者多级目录中，需要配置 directory 属性 -->
@@ -58,6 +64,12 @@ import demodata from '@/mockdata/demodata.json';
 export default {
   data() {
     return {
+	  chartsDataArcbar1:{},
+	  useUrl:'/sys/user/showOrgCount',
+	  progress:'',	
+		
+		
+		
       chartsDataColumn1:{},
       chartsDataColumn2: {},
       chartsDataColumn3:{},
@@ -105,6 +117,9 @@ export default {
       }
     };
   },
+  onLoad() {
+  	this.loadinfo()
+  },
   onReady() {
     setTimeout(() => {
       this.getServerData();
@@ -126,8 +141,29 @@ export default {
     }, 5000);
   },
   methods: {
+	  loadinfo(){
+	  		  this.$http.get(this.useUrl).then(res=> {
+	  		  	if (res.data.success) {	  		  		
+	  				this.progress=((100*res.data.result.inCount)/(res.data.result.userCount)).toFixed(2)+'%'
+
+      	this.chartsDataArcbar1=JSON.parse(JSON.stringify(demodata.Arcbar1))
+					this.chartsDataRing1=this.PieA
+	  		
+	  		  	}
+	  		  }).catch(e=>{
+	  		  	console.log("请求错误",e)
+	  		  })
+	  },
+	  
+	  
+	  
+	  
+	  
     getServerData() {
-      
+      this.chartsDataArcbar1=JSON.parse(JSON.stringify(demodata.Arcbar1))
+	  
+	  
+	  
       //因部分数据格式一样，这里不同图表引用同一数据源的话，需要深拷贝一下构造不同的对象
       //开发者需要自行处理服务器返回的数据，应与标准数据格式一致，注意series的data数值应为数字格式
       

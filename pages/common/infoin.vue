@@ -4,9 +4,18 @@
 			<cu-custom bgColor="bg-gradual-pink" :isBack="true">
 				<block slot="content">信息填写</block>
 			</cu-custom>
-			<view class="padding flex flex-direction">
+<!-- 			<view class="padding flex flex-direction">
 				<app-select label="目的城市 ：" v-model="model.city_name" placeholder="请选择类型" :dict="plan_type" space ></app-select>
+			</view> -->
+		   <view class="cu-form-group">
+				<view class="padding flex flex--direction">
+					<text space="ensp">目的城市: </text>
+				</view>	
+				<view class="padding flex flex--direction">
+					<input type="text" v-model="model.city_name" placeholder="省-市"/>	
+				</view>
 			</view>
+			
 <!-- 			<view class="cu-form-group">
 				<view class="padding flex flex--direction">
 					<text space="ensp">身份证: </text>
@@ -39,9 +48,6 @@
 				<input type="text" v-model="school" placeholder="输入学校"/>	
 				</view>
 			</view>	
-			
-			
-			
 		<view class="cu-form-group">
 			<view class="padding flex flex--direction">
 				<text space="ensp">密码: </text>

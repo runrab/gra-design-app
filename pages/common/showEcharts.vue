@@ -4,15 +4,30 @@
 			<block slot="content">信息统计</block>
 		</cu-custom>
   <view class="content">
-    <qiun-title-bar title="热门城市排行"/>
+
+	<text> 填写进度</text>
+    <view class="charts-box">
+      <qiun-data-charts type="arcbar" :opts="{title:{name:progress,color:'#2fc25b',fontSize:35},subtitle:{name:'填写率',color:'#666666',fontSize:25}}" :chartData="chartsDataArcbar1"/>
+    </view>
+<!-- 	<text> 男女比率</text>
+	<view class="charts-box">
+	  <qiun-data-charts type="ring" :opts="{legend:{position: 'bottom'},extra:{ring:{ringWidth: 60,linearType:'custom',centerColor:'#FF0'}}}" :chartData="chartsDataRing1"/>
+	</view> -->
+	<text> 男女比率</text>
+	<view class="charts-box">
+	  <qiun-data-charts type="ring" :opts="{legend:{position: 'bottom'},extra:{ring:{ringWidth: 60,linearType:'custom',centerColor:'#FF0'}}}" :chartData="chartsDataRing1"/>
+	</view>
+	<text> 女性选择城市图</text>
+	<view class="charts-box">
+	  <qiun-data-charts type="rose" :opts="{legend:{position: 'bottom'}}" :chartData="chartsDataRose1"/>
+	</view>
+	
+<!--   去向城市 -->
     <view class="charts-box">
       <qiun-data-charts type="bar" :opts="{color:['#FAC858','#00e7ae'],xAxis:{max:40},extra:{bar:{linearType:'custom',barBorderCircle:true}}}" :chartData="chartsDataColumn1"/>
     </view>
-    <qiun-title-bar title="填写率"/>
-    <view class="charts-box">
-      <qiun-data-charts type="ring" :opts="{legend:{position: 'bottom'},extra:{ring:{ringWidth: 60,linearType:'custom',centerColor:'#FF0'}}}" :chartData="chartsDataRing1"/>
-    </view>
-    <qiun-title-bar title="城市去向百分比"/>
+
+<!--    <qiun-title-bar title="城市去向百分比"/> -->
     <view class="charts-box">
       <qiun-data-charts type="rose" :opts="{legend:{position: 'bottom'}}" :chartData="chartsDataRose1"/>
     </view>
@@ -20,18 +35,12 @@
     <view class="charts-box">
       <qiun-data-charts type="rose" :opts="{legend:{position: 'bottom'},extra:{rose:{type:'radius'}}}" :chartData="chartsDataRose2"/>
     </view> -->
-    <qiun-title-bar title="填写进度"/>
+    <!-- <qiun-title-bar title="填写进度"/> -->
     <!-- 这里的title.name和subtitle.name如果需要联动chartData，请定义一个变量同步传入:opts和:chartData中 -->
-    <view class="charts-box">
-      <qiun-data-charts type="arcbar" :opts="{title:{name:'80%',color:'#2fc25b',fontSize:35},subtitle:{name:'正确率',color:'#666666',fontSize:25}}" :chartData="chartsDataArcbar1"/>
-    </view>
-    <qiun-title-bar title="倒三角形漏斗图"/>
+
+    <!-- <qiun-title-bar title="倒三角形漏斗图"/> -->
     <view class="charts-box">
       <qiun-data-charts type="funnel" :opts="{extra:{funnel:{type:'triangle'}}}" :chartData="chartsDataFunnel1"/>
-    </view>
-    <qiun-title-bar title="全国地图"/>
-    <view class="charts-box" style="height: 400px;">
-      <qiun-data-charts type="map" :opts="{extra:{map:{mercator:true}}}" :chartData="chartsDataMap1"/>
     </view>
   </view>
   </view>
@@ -45,6 +54,24 @@ import mapdata from '@/mockdata/mapdata.json'
 export default {
   data() {
     return {
+	  useUrl:'/sys/user/showChartsCount',
+	  progress:'',
+	  PieA: {
+	  	"series": [{
+	  		"data": [
+	        {
+	        	"name": "男性",
+	        	"value": 55
+	        }, {
+	        	"name": "女性",
+	        	"value": 45
+	        }
+	      ]
+	  	}]
+	  },
+	chartsDataRing1:{},
+	  
+	  
       chartsDataColumn1:{},
       chartsDataColumn2:{},
       chartsDataColumn3:{},
@@ -63,7 +90,7 @@ export default {
       chartsDataArea2:{},
       chartsDataMix1:{},
       chartsDataPie1:{},
-      chartsDataRing1:{},
+
       chartsDataRose1:{},
       chartsDataRose2:{},
       chartsDataArcbar1:{},
@@ -78,12 +105,35 @@ export default {
       chartsDataCandle1:{},
     };
   },
+  onLoad() {
+  	this.loadinfo()
+  },
   onReady() {
     //模拟从服务器获取数据
     this.getServerData()
   },
   methods: {
+	  loadinfo(){
+		  this.$http.get(this.useUrl).then(res=> {
+		  	if (res.data.success) {
+		  		this.chartsDataColumn1=JSON.parse(JSON.stringify(res.data.result.Column))
+		  		this.list=res.data.result.Column.categories
+		  		this.chartsDataColumn1.categories=[0,1,2,3,4,5,6,7,8,9]
+		  		this.maxNum=res.data.result.Column.series[0].data[0]			
+				this.progress=((100*res.data.result.inCount)/(res.data.result.userStuCount)).toFixed(2)+'%'
+				this.chartsDataMap1={series:mapdata.features}
+				
+				this.chartsDataRing1=this.PieA
+		
+		  	}
+		  }).catch(e=>{
+		  	console.log("请求错误",e)
+		  })
+	  },
+	  
+	  
     getServerData() {
+		
       setTimeout(() => {
       	//因部分数据格式一样，这里不同图表引用同一数据源的话，需要深拷贝一下构造不同的对象
       	//开发者需要自行处理服务器返回的数据，应与标准数据格式一致，注意series的data数值应为数字格式
@@ -113,7 +163,7 @@ export default {
       	this.chartsDataArea2=JSON.parse(JSON.stringify(demodata.Line))
       	this.chartsDataMix1=JSON.parse(JSON.stringify(demodata.Mix))
       	this.chartsDataPie1=JSON.parse(JSON.stringify(demodata.PieA))
-      	this.chartsDataRing1=JSON.parse(JSON.stringify(demodata.PieA))
+      	// this.chartsDataRing1=JSON.parse(JSON.stringify(demodata.PieA))
       	this.chartsDataRose1=JSON.parse(JSON.stringify(demodata.PieA))
       	this.chartsDataRose2=JSON.parse(JSON.stringify(demodata.PieA))
       	this.chartsDataArcbar1=JSON.parse(JSON.stringify(demodata.Arcbar1))

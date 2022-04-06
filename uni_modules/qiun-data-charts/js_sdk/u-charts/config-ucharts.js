@@ -123,7 +123,7 @@ const cfu = {
       "lineHeight": 25,
 		},
 		"title": {
-			"name": "收益率",
+			"name": "填写率",
 			"fontSize": 15,
 			"color": "#666666"
 		},

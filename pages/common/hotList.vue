@@ -1,38 +1,33 @@
 <template>
 	<view>
+		<view class="charts-box" style="height: 400px;">
+			<qiun-data-charts type="map" :opts="{extra:{map:{mercator:true}}}" :chartData="chartsDataMap1"/>
+		</view>
 		<scroll-view scroll-y class="page">
 			<cu-custom bgColor="bg-gradual-pink" :isBack="true">
 				<block slot="content">热门城市排行</block>
 			</cu-custom>
-<!-- 			<view class="cu-list menu" v-for="(item,index) in list" :key="index">
-				<view class="cu-item animation-slide-bottom" > 
-					{{index}}
-					<view class="action">
-						<text class="text-grey">人数: {{item}}</text>
-					</view>
-				</view>	
-			</view> -->
 			<view class="charts-box">
 			  <qiun-data-charts type="bar" :opts="{color:['#FAC858','#00e7ae'],xAxis:{max:maxNum},extra:{bar:{linearType:'custom',barBorderCircle:true}}}" :chartData="chartsDataColumn1"/>
 			</view>
-			<view class="action" v-for="(item,index) in list" :key="index%2">
+			<view class="action" v-for="(item,index) in list" :key="index">
 				<text class="text-grey" space="emsp" style="color: #ee2746;">编号: {{index++}}: 城市: {{item}} </text>
 			</view>
-
 		</scroll-view>
 	</view>
 </template>
 
 <script>
 	import demodata from '@/mockdata/demodata.json';
+	import mapdata from '@/mockdata/mapdata.json'
 	import api from '@/api/api.js'
 	export default {
 		data() {
 			return {
 				chartsDataColumn1:{},
+			    chartsDataMap1:{},
 				list:'',
-				maxNum:0,
-				// useUrl:'/sys/user/showChartsCount',
+				maxNum:10,
 				useUrl:'/sys/user/showChartsCount',
 			};
 		},
@@ -45,19 +40,13 @@
 		// },
 		methods: {
 			loadinfo(){		
-				// this.chartsDataColumn1=JSON.parse(JSON.stringify(demodata.Column))
-				
-				// this.$http.get(this.useUrl).then(res=> {
-				// 	if (res.data.success) {
-				// 		this.list= res.data.result.hotCity
-				// 	}
 				this.$http.get(this.useUrl).then(res=> {
 					if (res.data.success) {
-						// this.list= res.data.result.hotCity
 						this.chartsDataColumn1=JSON.parse(JSON.stringify(res.data.result.Column))
 						this.list=res.data.result.Column.categories
 						this.chartsDataColumn1.categories=[0,1,2,3,4,5,6,7,8,9]
 						this.maxNum=res.data.result.Column.series[0].data[0]
+					this.chartsDataMap1={series:mapdata.features}
 					}
 				}).catch(e=>{
 					console.log("请求错误",e)
