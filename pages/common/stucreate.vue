@@ -42,6 +42,12 @@
 			      <input  placeholder="学号后六位/123456" v-model="model.password" type="password"/>
 			    </view>
 			  </view>
+			  <view class="cu-form-group">
+			    <view class="flex align-center">
+			      <view class="title"><text space="ensp">邮箱：</text></view>
+			      <input  placeholder="请输入邮箱地址" v-model="model.email"/>
+			    </view>
+			  </view>
 <!-- 			  <view class="cu-form-group">
 			    <view class="flex align-center">
 			      <view class="title"><text space="ensp">班级：</text></view>

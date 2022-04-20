@@ -92,7 +92,7 @@ export const os = {
      page:'userdetail'
    },{
       title:"定位",
-      icon:icon_prefix+"tongzhi.png",
+      icon:icon_prefix+"dingwei.png",
       description:"定位",
       useCount:10000,
 	  page:'location'
@@ -151,13 +151,13 @@ export const tea = {
 	  page:'releaseInfo'
     },{
       title:"信息统计",
-      icon:icon_prefix+"tongzhi.png",
+      icon:icon_prefix+"tongji.png",
       description:"信息统计",
       useCount:10000,
 	  page:'showStaticInfo'
     },{
       title:"数据分析",
-      icon:icon_prefix+"tongzhi.png",
+      icon:icon_prefix+"fenxi.png",
       description:"数据分析",
       useCount:10000,
 	  page:'showEcharts'

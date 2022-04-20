@@ -77,6 +77,7 @@
 				  {id:2,type: 'image',url: '/static/banner/banner2.png', link: '/pages/common/zhaopindetail'},
 				  {id:3,type: 'image',url: '/static/banner/banner3.png', link: '/pages/common/hotList'},
 				  {id:4,type: 'image',url: '/static/banner/banner4.png', link: '/pages/common/messagedetail'},
+				  {id:5,type: 'image',url: '/static/banner/banner6.png', link: '/pages/user/help'},
 				],
 				middleApps: [
 				  {icon: 'line2_icon1.png', title: '管理', 'text': '教师'},
