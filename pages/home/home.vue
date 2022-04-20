@@ -10,11 +10,10 @@
 				
 				</swiper-item>
 			</swiper>
-			
-			<!-- 常用服务 -->
+			<!-- 公共服务 -->
 			<view class="cu-bar bg-white solid-bottom" :style="[{animation: 'show 0.5s 1'}]">
 				<view class="action">
-					<text class='cuIcon-title text-blue'></text>常用服务
+					<text class='cuIcon-title text-blue'></text>公共服务
 				</view>
 			</view>
 				
@@ -31,13 +30,13 @@
 				</view>
 			</view>
 				
-			<!-- 其他服务 -->
-			<view class="cu-bar bg-white solid-bottom margin-top"  :style="[{animation: 'show 0.6s 1'}]">
+			<!-- 学生服务 -->
+			<view class="cu-bar bg-white solid-bottom margin-top"  :style="[{animation: 'show 0.6s 1'}]" v-if="identity != 1">
 				<view class="action">
-					 <text class='cuIcon-title text-yellow'></text>其他服务
+					 <text class='cuIcon-title text-yellow'></text>学生服务
 				</view>
 			</view>
-			<view class="cu-list grid col-4 text-sm">
+			<view class="cu-list grid col-4 text-sm" v-if="identity != 1">
 				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: (index + 1)*0.1 + 's'}]" v-for="(item,index) in osList" :key="index" @tap="goPage(item.page)">
 					<view class="padding text-center">
 						<image :src="item.icon" style="width:28px;height:28px;"/>
@@ -82,6 +81,8 @@
 				usList:us.data,
 				osList:os.data,
 				msgCount:0,
+				//首页禁止教师填写学生信息
+				identity: "",
 				dot:{
 				  mailHome:false
 				}
@@ -93,6 +94,9 @@
 			    this.onSocketOpen()
 			    this.onSocketReceive()
 			    this.loadCount(0);
+				//切割学生服务
+				this.identity=this.$store.getters.identity
+				console.log("身份：" +this.$store.getters.identity)
 			},
 			goPage(page){
 				if(!page){

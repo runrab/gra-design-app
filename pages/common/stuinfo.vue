@@ -84,7 +84,7 @@
 			},
 			//编辑
 			editClick(userId){
-				this.$Router.push({name:'userdetail', params:userId})
+				this.$Router.push({name:'stuedit', params:{userId:userId}})
 			},
 			loadinfo(){				
 				// this.$http.get(this.useUrl,{params:{id:this.$store.getters.userid}}).then(res=> {

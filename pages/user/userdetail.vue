@@ -73,7 +73,7 @@
 						<text class="text-grey">{{personalMsg.email}}</text>
 					</view>
 				</view>
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.4s'}]"   v-if="personalMsg.identitystu==0">
+				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.4s'}]">
 					<view class="content">
 						<text class="text-grey">目的城市</text>
 					</view>
@@ -110,7 +110,6 @@
 					departIds:'',
 					identity:'',
 					cityName:'',
-					identitystu:'',
 				},
 				userUrl:'/sys/user/queryById',
 				positionUrl:'/sys/position/list',
@@ -157,7 +156,6 @@
 						this.personalMsg.identity= result.identity=== 1?'普通成员':'上级'
 						this.personalMsg.status= result.status === 1?'正常':'冻结'
 						this.personalMsg.orgCode= result.orgCode
-						this.personalMsg.identitystu= result.identitystu
 						this.personalMsg.cityName= result.cityName
 					}
 				}).catch(e=>{
