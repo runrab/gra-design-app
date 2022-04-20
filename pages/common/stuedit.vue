@@ -27,17 +27,6 @@
 					</view>
 				</view>
 			</view>
-			
-			
-<!-- 			<view class="cu-form-group">
-				<view class="title">文件</view>
-				<view class="grid col-4 grid-square flex-sub">
-					<view class="solids" @tap="ChooseFile">
-						<text class='cuIcon-cameraadd'></text>
-					</view>
-				</view>
-			</view>
-			 -->
 			<view class="cu-form-group margin-top">
 				<view class="title">性别</view>
 				<switch class='switch-sex' @change="SwitchC" :class="switchC?'checked':''" :checked="switchC?true:false"></switch>
@@ -95,7 +84,7 @@
 					id:'',
 					identitystu:'',
 					cityName:'',
-					visible:'',
+					visible:'0',
 				},
 				personalMsg:{
 					avatar:'',
@@ -113,6 +102,7 @@
 					departIds:'',
 					identity:'',
 					cityName:'',
+					visible:'0',
 				},
 			};
 		},
@@ -129,7 +119,7 @@
 					this.personalMsg.username= result.username
 					this.personalMsg.post = result.post
 					this.personalMsg.sex = result.sex===1?'男':'女'
-					this.personalMsg.birthday = result.birthday== null?'无':result.birthday
+					// this.personalMsg.birthday = result.birthday== null?'无':result.birthday
 					this.personalMsg.departIds= result.departIds
 					this.personalMsg.workNo= result.workNo
 					this.personalMsg.phone= result.phone
@@ -140,6 +130,7 @@
 					this.personalMsg.status= result.status === 1?'正常':'冻结'
 					this.personalMsg.orgCode= result.orgCode
 					this.personalMsg.cityName= result.cityName
+					this.personalMsg.visible='0'
 				}
 			}).catch(e=>{
 				console.log("请求错误",e)
@@ -172,6 +163,7 @@
 			let query=this.personalMsg
 			if(query){
 				this.myFormData=query;
+				this.myFormData.visible='0'
 				if(this.myFormData.sex=='女'){
 				  this.switchC = false
 				}else if(this.myFormData.sex=='男'){
@@ -190,6 +182,7 @@
 				}
 				if(this.myFormData.status=='正常'){
 				  this.myFormData.status = 1
+				  
 				}else if(this.myFormData.status=='冻结'){
 				  this.myFormData.status = 2
 				}
@@ -235,10 +228,7 @@
 					this.$tip.loaded();
 					if (res.data.success){
 						this.$tip.toast('提交成功')
-						this.$Router.replace({name:'userdetail'})
-						/* uni.navigateTo({
-							url: '/pages/user/userdetail'
-						}) */
+						this.$Router.replace({name:'stuinfo'})
 					}
 				}).catch(()=>{
 					this.$tip.loaded();
@@ -272,34 +262,6 @@
 					}
 				});
 			},
-			
-			// //选择文件 
-			// ChooseFile() {
-			// 	var that=this;
-			// 	uni.chooseFile({
-			// 		count: 6, //默认9
-			// 		extension:['.xls','.csv','.xlsx','.json'],
-			// 		// sourceType: ['album'], //从相册选择  文件上传不可用
-			// 		success: (res) => {
-			// 			that.$http.upload(that.$config.apiUrl+that.uploadUrl, {
-			// 					filePath: res.tempFilePaths[0],
-			// 					name: 'file'
-			// 				})
-			// 				.then(res => {
-			// 					console.log("文件上传成功")
-			// 					// that.myFormData.avatar=res.data.message;
-			// 				})
-			// 				.catch(err => {
-			// 					that.$tip.error(err.data.message)
-			// 				});
-			// 			// this.imgList = res.tempFilePaths
-			// 		}
-			// 	});
-			// },
-			
-			
-			
-			
 			ViewImage(e) {
 				uni.previewImage({
 					urls: this.imgList,

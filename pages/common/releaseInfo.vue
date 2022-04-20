@@ -7,19 +7,19 @@
 		<view>
 			<form>
 				<view class="cu-form-group">
+				  <my-date label="结束时间：" v-model="model.endTime" placeholder="请选择结束时间" required fields="minute"></my-date>
+				</view>
+				<view class="cu-form-group">
+				<textarea placeholder="优先级" v-model="model.priority"> </textarea>	
+				</view>
+				<view class="cu-form-group">
 				  <textarea placeholder="请填写标题" v-model="model.titile"> </textarea>	
 				</view>
-<!-- 				<view class="padding flex flex-direction">
-				  <my-date label="结束时间：" v-model="model.endTime" placeholder="请选择开始时间" required fields="minute"></my-date>
-				</view> -->
 				<view class="cu-form-group">
-					<textarea placeholder="请填写留言信息" v-model="model.msgAbstract"> </textarea>	
+					<textarea placeholder="请填写招聘信息" v-model="model.msgAbstract"> </textarea>	
 				</view>
 <!-- 				<view class="cu-form-group">
 				<textarea placeholder="请填写留言信息" v-model="model.msgContent"> </textarea>	
-				</view> -->
-<!-- 				<view class="cu-form-group">
-				<textarea placeholder="优先级" v-model="model.priority"> </textarea>	
 				</view> -->
 <!-- 				<view class="cu-form-group">
 						<app-select label="发布类型：" v-model="model.msgType" placeholder="请选择类型" :dict="plan_type" space ></app-select>
@@ -93,6 +93,7 @@
 					// "msgType": "USER",
 					// "priority": "H",
 					// "titile": "bbbb",
+					
 				myForm.msgContent=this.model.msgAbstract
 				// myForm.userIds="429376197808194306,"
 				myForm.userIds=this.$store.getters.userid+','
