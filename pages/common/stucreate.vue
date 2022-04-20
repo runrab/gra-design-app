@@ -116,7 +116,7 @@
 				
 				//非用户表数据
 				myForm.selectedroles="1260924539346472962"
-				myForm.selecteddeparts="c6d7cb4deeac411cb3384b1b31278596"
+				myForm.selecteddeparts="6d35e179cd814e3299bd588ea7daed3f"
 				
 				
 				// myForm.createBy=this.$store.getters.username

@@ -16,7 +16,27 @@ export default new Vuex.Store({
     avatar: '',
 	// 存储桶新增获取数据方法
 	visible: '',
-	identity: ''
+	identity: '',
+	sex: '',
+	email: '',
+	phone: '',
+	orgCode: '',
+	orgCodeTxt: '',
+	status: '',
+	delFlag: '',
+	workNo: '',
+	post: '',
+	telephone: '',
+	createBy: '',
+	createTime: '',
+	updateBy: '',
+	updateTime: '',
+	activitiSync: 1,
+	userIdentity: 2,
+	departIds: '',
+	relTenantIds: '',
+	clientId: '',
+	cityName: ''
 	//=============end=================
   },
   mutations: {
@@ -104,7 +124,32 @@ export default new Vuex.Store({
 	//新增获取存储数据代码
 	identity:state => {state.identity=uni.getStorageSync(USER_INFO).identity; return state.identity},
 	visible:state => {state.visible=uni.getStorageSync(USER_INFO).visible; return state.visible},
-	
+	// 
+	birthday:state => {state.birthday=uni.getStorageSync(USER_INFO).birthday; return state.birthday},
+	sex:state => {state.sex=uni.getStorageSync(USER_INFO).sex; return state.sex},
+	email:state => {state.email=uni.getStorageSync(USER_INFO).email; return state.email},
+	phone:state => {state.phone=uni.getStorageSync(USER_INFO).phone; return state.phone},
+	orgCode:state => {state.orgCode=uni.getStorageSync(USER_INFO).orgCode; return state.orgCode},
+	orgCodeTxt:state => {state.orgCodeTxt=uni.getStorageSync(USER_INFO).orgCodeTxt; return state.orgCodeTxt},
+	status:state => {state.status=uni.getStorageSync(USER_INFO).status; return state.status},
+	delFlag:state => {state.delFlag=uni.getStorageSync(USER_INFO).delFlag; return state.delFlag},
+	workNo:state => {state.workNo=uni.getStorageSync(USER_INFO).workNo; return state.workNo},
+	post:state => {state.post=uni.getStorageSync(USER_INFO).post; return state.post},
+	workNo:state => {state.workNo=uni.getStorageSync(USER_INFO).workNo; return state.workNo},
+	telephone:state => {state.telephone=uni.getStorageSync(USER_INFO).telephone; return state.telephone},
+	createBy:state => {state.createBy=uni.getStorageSync(USER_INFO).createBy; return state.createBy},
+	createTime:state => {state.createTime=uni.getStorageSync(USER_INFO).createTime; return state.createTime},
+	updateBy:state => {state.updateBy=uni.getStorageSync(USER_INFO).updateBy; return state.updateBy},
+	updateTime:state => {state.updateTime=uni.getStorageSync(USER_INFO).updateTime; return state.updateTime},
+	activitiSync:state => {state.activitiSync=uni.getStorageSync(USER_INFO).activitiSync; return state.activitiSync},
+	userIdentity:state => {state.userIdentity=uni.getStorageSync(USER_INFO).userIdentity; return state.userIdentity},
+	departIds:state => {state.departIds=uni.getStorageSync(USER_INFO).departIds; return state.departIds},
+	relTenantIds:state => {state.relTenantIds=uni.getStorageSync(USER_INFO).relTenantIds; return state.relTenantIds},
+	clientId:state => {state.clientId=uni.getStorageSync(USER_INFO).clientId; return state.clientId},
+	cityName:state => {state.cityName=uni.getStorageSync(USER_INFO).cityName; return state.cityName},
+
+			
+
 	
 	
   }

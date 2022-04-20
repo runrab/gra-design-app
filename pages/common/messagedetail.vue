@@ -56,8 +56,8 @@
 			<view class="cu-list menu" v-for="(item,index) in list" :key="index" v-if="item.visible==1||item.userid==localuserid">
 				<view class="cu-item animation-slide-bottom" > 
 				<!-- :style="[{animationDelay: '1s'}] -->
-					<view class="action">
-						<text class="text-grey">{{item.context}}</text>
+					<view class="action" v-html="item.context">
+						<!-- <text class="text-grey">{{item.context}}</text> -->
 					</view>
 				</view>	
 				<view class="cu-item animation-slide-bottom" > 

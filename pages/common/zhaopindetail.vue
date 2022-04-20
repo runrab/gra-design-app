@@ -45,9 +45,8 @@
 			<view class="cu-list menu" v-for="(item,index) in list" :key="index">
 				<view class="cu-item animation-slide-bottom" > 
 				<!-- :style="[{animationDelay: '1s'}] -->
-					<view class="action">
-						<text class="text-grey">{{item.context}}</text>
-					</view>
+						<view class="action" v-html="item.context"></view>
+						<!-- <text class="text-grey">{{item.context}}</text> -->
 				</view>	
 				<view class="cu-item animation-slide-bottom" > 
 					<text class="text-grey" space="ensp">{{item.createTime}} </text>  
