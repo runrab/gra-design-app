@@ -41,9 +41,9 @@
                 model: {},
                 backRouteName:'index',
                 url: {
-                  queryById: "/runrab/zhaoPin/queryById",
-                  add: "/runrab/zhaoPin/add",
-                  edit: "/runrab/zhaoPin/edit",
+                  queryById: "/runrab/zhaopin/queryById",
+                  add: "/runrab/zhaopin/add",
+                  edit: "/runrab/zhaopin/edit",
                 },
             }
         },
@@ -68,7 +68,7 @@
 				myForm.avatar=this.$store.getters.avatar
 				myForm.createBy=this.$store.getters.username
                 this.loading = true;
-                let url = myForm.id?this.url.edit:this.url.add;
+                let url = this.url.add;
 				this.$http.post(url,myForm).then(res=>{
 				   console.log("res",res)
 				   this.loading = false

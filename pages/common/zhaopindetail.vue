@@ -71,8 +71,8 @@
 			return {
 				list:'',
 				localuserid: '',  //存储桶中用户id
-				useUrl:'/runrab/zhaoPin/list',
-				delUrl:'/runrab/zhaoPin/delete'
+				useUrl:'/runrab/zhaopin/list',
+				delUrl:'/runrab/zhaopin/delete'
 			};
 		},
 		onLoad() {

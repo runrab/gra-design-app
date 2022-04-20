@@ -73,8 +73,6 @@
 <script>
 	const tabs = [{title:'通知公告',value:0}, {title:'系统消息',value:1}];
 	import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
-	
-	
 	export default {
 	    mixins: [MescrollMixin], // 使用mixin
 		data() {
