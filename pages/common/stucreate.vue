@@ -110,16 +110,13 @@
                 let myForm = {...this.model};
                 this.loading = true;
                 let url = this.url.add;
-				myForm.identity='0'//1代表教师 0学生 -1删除
-				// myForm.visible='1' //0不可见 1可见 
+				myForm.identity='0'//1代表教师 0学生 -1删除 2 代表管理员
+				// myForm.visible='1' //0全体可见 1不可见 
 				myForm.visible='0'
-				
 				//非用户表数据
+				// 学生角色对应编码 固定数
 				myForm.selectedroles="1260924539346472962"
-				myForm.selecteddeparts="6d35e179cd814e3299bd588ea7daed3f"
-				
-				
-				// myForm.createBy=this.$store.getters.username
+				myForm.selecteddeparts=this.$store.getters.depId
 				this.$http.post(url,myForm).then(res=>{
 				   this.loading = false
 				   this.$Router.push({name:'stuinfo'})

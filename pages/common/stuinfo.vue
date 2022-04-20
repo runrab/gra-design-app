@@ -13,7 +13,7 @@
 				<button class="cu-btn bg-green shadow-blur round lg" @tap="rightClick">手动新增用户
 				</button>
 			</view>	
-			<view class="cu-list menu" v-for="(item,index) in list" :key="index">
+			<view class="cu-list menu" v-for="(item,index) in list" :key="index" v-if="item.identity ==0 ">
 				<view class="cu-item animation-slide-bottom" > 
 <!-- 					<view class="action">
 						<text class="text-grey">用户名:{{item.username}}</text>
@@ -47,7 +47,7 @@
 				parm:{}, //传参数到导航的位置
 				list:'',
 				localuserid: '',  //存储桶中用户id
-				useUrl:'/sys/user/queryChildrenByUsername',
+				useUrl:'/sys/user/appQueryUserByDepartId',
 				url:{
 					lsit:'/sys/user/queryChildrenByUsername',
 					add:'',
@@ -88,12 +88,12 @@
 			},
 			loadinfo(){				
 				// this.$http.get(this.useUrl,{params:{id:this.$store.getters.userid}}).then(res=> {
-				this.$http.get(this.useUrl+'?userId='+this.$store.getters.userid).then(res=> {
+				this.$http.get(this.useUrl+'?departId='+this.$store.getters.depId).then(res=> {
 				
 					// console.log(res.data.result.records[0].context.toString())
 					if (res.data.success) {
 						//只要子节点
-						this.list= res.data.result.children 
+						this.list= res.data.result 
 					}
 				}).catch(e=>{
 					console.log("请求错误",e)

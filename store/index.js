@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import api from "@/api/api"
 import MinCache from'@/common/util/MinCache.js'
-import { ACCESS_TOKEN,USER_NAME,USER_INFO } from "@/common/util/constants"
+import { ACCESS_TOKEN,USER_NAME,USER_INFO, USER_MORE } from "@/common/util/constants"
 
 Vue.use(Vuex)
 
@@ -39,6 +39,10 @@ export default new Vuex.Store({
 	cityName: ''
 	//=============end=================
   },
+  more:{
+	  depId:''
+  },
+  
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token
@@ -63,6 +67,10 @@ export default new Vuex.Store({
 			// runrab 将需要的信息存储在storge中
 			uni.setStorageSync(ACCESS_TOKEN,result.token);
 			uni.setStorageSync(USER_INFO,userInfo);
+			// USER_MORE
+			uni.setStorageSync(USER_MORE,result.userMore);
+			// USER_MORE end 
+			
             commit('SET_TOKEN', result.token)
             commit('SET_AVATAR', userInfo.avatar)
             commit('SET_NAME', { username: userInfo.username,realname: userInfo.realname})
@@ -148,8 +156,8 @@ export default new Vuex.Store({
 	clientId:state => {state.clientId=uni.getStorageSync(USER_INFO).clientId; return state.clientId},
 	cityName:state => {state.cityName=uni.getStorageSync(USER_INFO).cityName; return state.cityName},
 
-			
-
+	// USER_INFO
+	depId:more => {more.depId=uni.getStorageSync(USER_MORE).depId; return more.depId},
 	
 	
   }

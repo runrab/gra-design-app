@@ -31,7 +31,7 @@
 			return {
 				CustomBar:this.CustomBar,
 				NavBarColor:this.NavBarColor,
-				url: "/runrab/zhaoPin/list",
+				url: "/runrab/zhaopin/list",
 			};
 		},
 		methods: {

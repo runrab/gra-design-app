@@ -106,6 +106,7 @@
 			myForm.city_name=this.model.city_name;
 			this.$http.post(url,myForm).then(res=>{
 			   console.log("res",res)
+			   console.log("USER_MORE "+this.$store.getters.depId)
 			   this.loading = false
 			   this.$Router.push({name:'index'})
 			   // this.$Router.push({name:this.backRouteName})

@@ -20,6 +20,13 @@ const apiService = {
 	logout(params) {
 		return http.post('/sys/logout',params);
 	},
+	
+	// 2022 4 20 新增获取用户更多信息存储在存储桶中
+	more(params) {
+		return http.post('/sys/mLogin',params)	
+	},
+	
+	
 	/**
 	 * 获取文件访问路径
 	 * @param avatar
