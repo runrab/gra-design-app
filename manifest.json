@@ -2,14 +2,15 @@
     "name" : "高校毕业生信息去向跟踪系统",
     "appid" : "__UNI__ED60083",
     "description" : "高校毕业生信息去向跟踪系统",
-    "versionName" : "1.0.0",
+    "versionName" : "1.0.1",
     "versionCode" : 1,
     "transformPx" : false,
     "app-plus" : {
         /* 5+App特有相关 */
         "modules" : {
+            "Push" : {},
             "Maps" : {},
-            "Push" : {}
+            "Geolocation" : {}
         },
         /* 模块配置 */
         "distribute" : {
@@ -41,25 +42,42 @@
                     "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-                ]
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ]
             },
-            "ios" : {},
+            "ios" : {
+                "idfa" : false
+            },
             /* ios打包配置 */
             "sdkConfigs" : {
                 "ad" : {},
                 "maps" : {
-                    "amap" : {
-                        "appkey_ios" : "87f4d2a4a0c42e0c86cf312c8b8154e8",
-                        "appkey_android" : "87f4d2a4a0c42e0c86cf312c8b8154e8"
+                    "baidu" : {
+                        "appkey_ios" : "",
+                        "appkey_android" : "9uKNrLeH0Sj1jaQpHlSC9QC5az2TR9Sw"
                     }
                 },
                 "push" : {
                     "unipush" : {}
+                },
+                "oauth" : {},
+                "geolocation" : {
+                    "system" : {
+                        "__platform__" : [ "android" ]
+                    },
+                    "baidu" : {
+                        "__platform__" : [ "android" ],
+                        "appkey_ios" : "",
+                        "appkey_android" : "9uKNrLeH0Sj1jaQpHlSC9QC5az2TR9Sw"
+                    }
                 }
             },
             "splashscreen" : {
                 "androidStyle" : "common"
             }
+        },
+        "uniStatistics" : {
+            "enable" : true
         }
     },
     /* SDK配置 */
@@ -83,6 +101,16 @@
         "domain" : "myhjdc.cn",
         "devServer" : {
             "port" : 8190
+        },
+        "uniStatistics" : {
+            "enable" : true
+        },
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : "LYVBZ-5YM66-VPTSD-M3DJ2-FSTNZ-WTF6D"
+                }
+            }
         }
     },
     "vueVersion" : "2"

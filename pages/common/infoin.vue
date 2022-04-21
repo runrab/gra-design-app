@@ -16,6 +16,32 @@
 				</view>
 			</view>
 			
+			<view class="cu-form-group" v-if="show.email==''">
+					<view class="padding flex flex--direction">
+						<text space="ensp">电子邮件: </text>
+					</view>	
+				<view class="padding flex flex--direction">
+					<input type="text" v-model="model.email" placeholder="xx@xx.com"/>	
+				</view>
+		   </view>
+			<view class="cu-form-group" v-if="show.phone==''">
+					<view class="padding flex flex--direction">
+						<text space="ensp">手机号码: </text>
+					</view>	
+				<view class="padding flex flex--direction">
+					<input type="text" v-model="model.phone" placeholder="输入手机号"/>	
+				</view>
+		   </view>		
+			   
+			<view class="cu-form-group" v-if="show.workNo==''">
+					<view class="padding flex flex--direction">
+						<text space="ensp">学号: </text>
+					</view>	
+				<view class="padding flex flex--direction">
+					<input type="text" v-model="model.workNo" placeholder="输入学号"/>	
+				</view>
+		   </view>				   
+			
 <!-- 			<view class="cu-form-group">
 				<view class="padding flex flex--direction">
 					<text space="ensp">身份证: </text>
@@ -67,7 +93,6 @@
 </template>
 
 <script>
-	const plan_type = [{text:'北京',value:'北京'},{text:'上海',value:'上海'},{text:'深圳',value:'深圳'}];
 	import appSelect from '@/components/my-componets/appSelect.vue'
 	import myImageUpload from '@/components/my-componets/my-image-upload.vue'
 	import myDate from '@/components/my-componets/my-date.vue'
@@ -80,16 +105,14 @@
 				formData: {
 					email: 'xx@qq.com',
 				},
+				more:{},
+				show:{},
 				modalName: null,
 				item:{msg:'退出成功'},
-				plan_type,
 				// type:"1",
 				selected:[],
 				beginTime:'',
 				endTime:'',
-				idcard:"",
-				phone:"",
-				stu:"",
 				password:"",
 				school:"",
 				model: {},
@@ -98,19 +121,23 @@
 				},
 			}
 		},
+		onLoad() {
+			this.loadinfo()
+		},
 		methods: {
+			loadinfo(){
+				this.show.email=this.$store.getters.email
+				this.show.phone=this.$store.getters.phone
+				this.show.workNo=this.$store.getters.workNo
+			},
 			submitInfo(){
 			let myForm = {...this.model};
 			this.loading = true;
 			let url = this.url.add;
 			myForm.city_name=this.model.city_name;
 			this.$http.post(url,myForm).then(res=>{
-			   console.log("res",res)
-			   console.log("USER_MORE "+this.$store.getters.depId)
 			   this.loading = false
 			   this.$Router.push({name:'index'})
-			   // this.$Router.push({name:this.backRouteName})
-			   // console.log(this.$Router.push({name:this.backRouteName}))
 			}).catch(()=>{
 				this.loading = false
 			});

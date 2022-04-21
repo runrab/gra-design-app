@@ -64,7 +64,14 @@ export const us = {
 	  description:"密码修改",
 	  useCount:10000,
 	  page:'restpassword'
-	}
+	},
+	{
+	   title:"定位",
+	   icon:icon_prefix+"dingwei.png",
+	   description:"定位",
+	   useCount:10000,
+		  page:'location'
+	 }
   ]
 }
 /**
@@ -90,13 +97,7 @@ export const os = {
      description:"个人信息修改",
      useCount:10000,
      page:'userdetail'
-   },{
-      title:"定位",
-      icon:icon_prefix+"dingwei.png",
-      description:"定位",
-      useCount:10000,
-	  page:'location'
-    }
+   }
   ]
 }
 

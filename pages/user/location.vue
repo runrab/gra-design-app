@@ -22,12 +22,12 @@
 				NavBarColor:this.NavBarColor,
 	            id:0, // 使用 marker点击事件 需要填写id
 	            title: 'map',
-	          　latitude: 40.009704,  //纬度
-		　　    longitude: 116.374999,  //经度
+	          　latitude: 34.445790,  //纬度
+		　　    longitude: 113.365367,  //经度
 		  　　　marker: [{
 			   　　id:0,
-			   　　latitude: 40.009704,//纬度
-			   　　longitude: 116.374999,//经度
+			   　　latitude: 34.445790,//纬度
+			   　　longitude: 113.365367,//经度
 			   　　iconPath: '/static/location.png',    //显示的图标        
 			   　　rotate:0,   // 旋转度数
 			   　　width:20,   //宽
@@ -48,7 +48,7 @@
 					   textAlign:'right'//文本对齐方式。
 			   }, */
 			   callout:{//自定义标记点上方的气泡窗口 点击有效  
-			   　　content:'北京国炬公司',//文本
+			   　　content:'runrab',//文本
 			   　　color:'#ffffff',//文字颜色
 			   　　fontSize:14,//文本大小
 			   　　borderRadius:2,//边框圆角
@@ -74,8 +74,8 @@
 		 　　  },    
 	   　　}], 
 	   　 　circles:[{//在地图上显示圆
-		  　　latitude: 40.009704,
-		  　　longitude: 116.374999,
+		  　　latitude: 34.445790,
+		  　　longitude: 113.365367,
 		  　　radius:50,//半径
 		      fillColor:"#ffffffAA",//填充颜色
 		  　　color:"#55aaffAA",//描边的颜色
@@ -103,6 +103,7 @@
 				    success: function (res) {
 				        console.log('当前位置的经度：' + res.longitude);
 				        console.log('当前位置的纬度：' + res.latitude);
+						thsi.$tip.success('当前位置的经度：' + res.longitude +'当前位置的纬度：' + res.latitude)
 				    },
 					fail: function (res) {
 						 console.log('当前位置的经度');

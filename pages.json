@@ -169,21 +169,6 @@
                 "enablePullDownRefresh": false
             }
         },{
-		    "path" : "pages/generate/DemoForm",
-		    "style" :                                                                                    
-		    {
-		    }
-		},{
-		    "path" : "pages/generate/ZhaoPinList",
-		    "style" :                                                                                    
-		    {
-		    }
-		},{
-		    "path" : "pages/generate/ZhaoPinForm",
-		    "style" :                                                                                    
-		    {
-		    }
-		},{
             "path" : "pages/common/zhaopin",
             "style" :                                                                                    
             {

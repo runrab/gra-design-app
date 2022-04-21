@@ -84,8 +84,7 @@
 				   console.log("res",res)
 				   this.loading = false
 				   this.$Router.push({name:'messagedetail'})
-				   // this.$Router.push({name:this.backRouteName})
-				   // console.log(this.$Router.push({name:this.backRouteName}))
+				   this.$tip.success('发布成功')
 				}).catch(()=>{
 					this.loading = false
 				});

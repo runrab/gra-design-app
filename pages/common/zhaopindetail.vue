@@ -88,6 +88,7 @@
 				this.$http.delete(this.delUrl+'?id='+ids).then(res=> {
 					if (res.data.success) {
 					this.$Router.push({name:'zhaopindetail'})
+					this.$tip.success("删除成功")
 					}
 				}).catch(e=>{
 					console.log("请求错误",e)

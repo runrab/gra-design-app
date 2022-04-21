@@ -120,6 +120,7 @@
 				this.$http.post(url,myForm).then(res=>{
 				   this.loading = false
 				   this.$Router.push({name:'stuinfo'})
+				   this.$tip.success('用户创建成功')
 				}).catch(()=>{
 					this.loading = false
 				});

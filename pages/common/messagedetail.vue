@@ -118,7 +118,7 @@
 					    uni.reLaunch({
 					       url: '/pages/common/messagedetail',
 					     });
-						
+						this.$tip.success("删除成功")
 					}
 				}).catch(e=>{
 					console.log("请求错误",e)
