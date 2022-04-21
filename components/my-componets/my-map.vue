@@ -24,19 +24,19 @@
 		 props:{
 			compLatitude:{
 				type:Number,
-				default:40.009390,
+				default: 34.445790,
 				required:false
 			},
 			compLongitude:{
 				type:Number,
-				default:116.374322,
+				default: 113.365367,
 				required:false
 			}
 		},
 		data() {
 			return {
 				amapPlugin:null,
-				wxMapKey:"53324ee357405c4a65f35a1aa05ffaf2",
+				wxMapKey:"LYVBZ-5YM66-VPTSD-M3DJ2-FSTNZ-WTF6D",
 				id:0,
 			    title: 'map',
 				distance:0,
@@ -77,7 +77,7 @@
 			  this.getLocationInfoWx();
 			// #endif
 			// #ifdef H5
-			  //this.getLocationInfo()
+			  this.getLocationInfo()
 			// #endif
 		},
 		computed:{

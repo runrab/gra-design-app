@@ -8,7 +8,7 @@
 			</cu-custom>
 			<!-- list列表 -->
 			<view class="cu-list menu">
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.05s'}]">
+				<view class="cu-item animation-slide-bottom">
 					<view class="content">
 						<text class="text-grey">头像</text>
 					</view>
@@ -17,7 +17,7 @@
 					</view>
 				
 				</view>
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.1s'}]">
+				<view class="cu-item animation-slide-bottom">
 					<view class="content">
 						<text class="text-grey">姓名</text>
 					</view>
@@ -25,7 +25,7 @@
 						<text class="text-grey">{{personalMsg.realname}}</text>
 					</view>
 				</view>
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.15s'}]">
+				<view class="cu-item animation-slide-bottom">
 					<view class="content">
 						<text class="text-grey">性别</text>
 					</view>
@@ -33,7 +33,7 @@
 						<text class="text-grey">{{personalMsg.sex}}</text>
 					</view>
 				</view>
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.2s'}]">
+				<view class="cu-item animation-slide-bottom">
 					<view class="content">
 						<text class="text-grey">生日</text>
 					</view>
@@ -44,7 +44,7 @@
 			</view>
 			
 			<view class="cu-list menu">
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.25s'}]">
+				<view class="cu-item animation-slide-bottom">
 					<view class="content">
 						<text class="text-grey">对外信息展示</text>
 					</view>
@@ -57,7 +57,7 @@
 			
 			
 			<view class="cu-list menu">
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.3s'}]">
+				<view class="cu-item animation-slide-bottom">
 					<view class="content">
 						<text class="text-grey">手机</text>
 					</view>
@@ -65,7 +65,7 @@
 						<text class="text-grey">{{personalMsg.phone}}</text>
 					</view>
 				</view>
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.4s'}]">
+				<view class="cu-item animation-slide-bottom">
 					<view class="content">
 						<text class="text-grey">邮箱</text>
 					</view>
@@ -73,7 +73,7 @@
 						<text class="text-grey">{{personalMsg.email}}</text>
 					</view>
 				</view>
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.4s'}]">
+				<view class="cu-item animation-slide-bottom"  v-if="personalMsg.identity==0 ">
 					<view class="content">
 						<text class="text-grey">目的城市</text>
 					</view>
@@ -110,6 +110,7 @@
 					departIds:'',
 					identity:'',
 					cityName:'',
+					visible:0
 				},
 				userUrl:'/sys/user/queryById',
 				positionUrl:'/sys/position/list',
@@ -157,6 +158,7 @@
 						this.personalMsg.status= result.status === 1?'正常':'冻结'
 						this.personalMsg.orgCode= result.orgCode
 						this.personalMsg.cityName= result.cityName
+						// this.personalMsg.visible = this.$store.getters.visible
 					}
 				}).catch(e=>{
 					console.log("请求错误",e)

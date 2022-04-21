@@ -101,15 +101,20 @@
 				uni.getLocation({
 				    type: 'gcj02',
 				    success: function (res) {
-				        console.log('当前位置的经度：' + res.longitude);
-				        console.log('当前位置的纬度：' + res.latitude);
+						console.log(2222)
+						console.log(res)
+				        // console.log('当前位置的经度：' + res.longitude);
+				        // console.log('当前位置的纬度：' + res.latitude);
+						// latitude
 						thsi.$tip.success('当前位置的经度：' + res.longitude +'当前位置的纬度：' + res.latitude)
 				    },
 					fail: function (res) {
-						 console.log('当前位置的经度');
+						 console.log('获取位置信息错误');
+						 console.log(res.data)
 					}	
 				});
 			}
+			
 	    }
 	}
 </script>
