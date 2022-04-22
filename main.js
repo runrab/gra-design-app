@@ -99,7 +99,28 @@ getApp().globalData.cdn='/static';
 getApp().globalData.cdn='/static';
 // #endif
 
- 
+// 全局变量
+getApp().globalData.ALL={
+        VISIBLE_ALL: 0,   //全体
+ 	    VISIBLE_ORG: 1,  //组织
+ 		VISIBLE_GE: -1,  //个人
+		
+		SEX_MAN: 1,      //男
+		SEX_WUM: 2,      //女
+		
+		IDENTITY_TEA: 1, //教师身份
+		IDENTITY_STU: 0, //学生身份
+		IDENTITY_ADMIN: 2, //管理员身份
+		
+		ROLE_STU: "1260924539346472962",   //学生角色
+		ROLE_TEA: "e51758fa916c881624b046d26bd09230",  //教师
+		ROLE_THIRD: "1169504891467464705",            //第三方登录角色
+		ROLE_TOURIST: "1508641340982882305",          //游客                   //tourist游客
+        ROLE_ADMIN: "f6817f48af4fb3af11b9e8bf182f618b",  //管理员
+		ROLE_TMP: "ee8626f80f7c2619917b6236f3a7f02b"   //临时角色	
+			
+		
+ 	}
 
-
-
+//使用
+// this.visible = getApp().globalData.ALL.VISIBLE_ALL;

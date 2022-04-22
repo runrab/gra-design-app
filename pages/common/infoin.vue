@@ -7,6 +7,7 @@
 <!-- 			<view class="padding flex flex-direction">
 				<app-select label="目的城市 ：" v-model="model.city_name" placeholder="请选择类型" :dict="plan_type" space ></app-select>
 			</view> -->
+		<uni-section title="未填写的信息 也需要补充" type="line">
 		   <view class="cu-form-group">
 				<view class="padding flex flex--direction">
 					<text space="ensp">目的城市: </text>
@@ -41,7 +42,7 @@
 					<input type="text" v-model="model.workNo" placeholder="输入学号"/>	
 				</view>
 		   </view>				   
-			
+		</uni-section>	
 <!-- 			<view class="cu-form-group">
 				<view class="padding flex flex--direction">
 					<text space="ensp">身份证: </text>

@@ -143,11 +143,6 @@
 					this.loading=true;
 			        this.mLogin(loginParams).then((res) => {
 					  this.loading=false;
-					  //测试
-					  console.log(res.data.success)
-					  console.log('区分教师: ' +res.data.result.userInfo.identity)
-					  console.log('可见性: ' +res.data.result.userInfo.visible)
-					 // 
 			          if(res.data.success){
 						 // #ifdef APP-PLUS
 						  this.saveClientId()

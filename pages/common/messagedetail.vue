@@ -6,58 +6,10 @@
 				<block slot="content">留言板</block>
 				<view slot="right"  @tap="rightClick">发布</view>
 			</cu-custom>
-			<!-- list列表 -->
-<!-- 			<view class="cu-list menu"> -->
-<!-- 				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.1s'}]">
-					<view class="content">
-						<text class="text-grey">头像</text>
-					</view>
-					<view class="action">
-						<view class="cu-avatar round sm" :style="{backgroundImage: 'url(' + personalMsg.avatar + ')'}"></view>
-					</view>
-				
-				</view> -->
-<!-- 				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.2s'}]">
-					<view class="content">
-						<text class="text-grey">姓名</text>
-					</view>
-					<view class="action">
-						<text class="text-grey">{{personalMsg.realname}}</text>
-					</view>
-				</view>
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.3s'}]">
-					<view class="content">
-						<text class="text-grey">性别</text>
-					</view>
-					<view class="action">
-						<text class="text-grey">{{personalMsg.sex}}</text>
-					</view>
-				</view>
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.4s'}]">
-					<view class="content">
-						<text class="text-grey">生日</text>
-					</view>
-					<view class="action">
-						<text class="text-grey">{{personalMsg.birthday}}</text>
-					</view>
-				</view> -->
-<!-- 			</view> -->
-			
-<!-- 			<view class="cu-list menu">
-				<view class="cu-item animation-slide-bottom" :style="[{animationDelay: '0.5s'}]">
-					<view class="content">
-						<text class="text-grey">对外信息展示</text>
-					</view>
-					<view class="action">
-						<text class="text-grey">{{getSubStringText(personalMsg.realname+'@'+personalMsg.orgCode,11)}}</text>
-					</view>
-				</view>
-			</view> -->
+			<uni-section title="留言内容" type="line">
 			<view class="cu-list menu" v-for="(item,index) in list" :key="index" v-if="item.visible==1||item.userid==localuserid">
 				<view class="cu-item animation-slide-bottom" > 
-				<!-- :style="[{animationDelay: '1s'}] -->
 					<view class="action" v-html="item.context">
-						<!-- <text class="text-grey">{{item.context}}</text> -->
 					</view>
 				</view>	
 				<view class="cu-item animation-slide-bottom" > 
@@ -70,8 +22,9 @@
 					</view>
 					<view  @tap="delClick(item.id)" v-if="item.userid==localuserid">删除</view>
 				</view>
-			</view>
-			
+			</view>				
+			</uni-section>	
+
 		</scroll-view>
 	</view>
 </template>
@@ -109,10 +62,6 @@
 				}); */
 			},
 			delClick(ids){
-				// this.$Router.push({name:'message', params:this.iteam})
-				// /* uni.navigateTo({
-				//     url: '/pages/user/useredit?item='+item
-				// }); */
 				this.$http.delete(this.delUrl+'?id='+ids).then(res=> {
 					if (res.data.success) {
 					    uni.reLaunch({
@@ -123,8 +72,6 @@
 				}).catch(e=>{
 					console.log("请求错误",e)
 				})
-				
-				
 			},
 			
 			loadinfo(){				
@@ -146,7 +93,6 @@
 				}).catch(e=>{
 					console.log("请求错误",e)
 				})
-				
 				this.$http.get(this.departUrl,{params:{userId:this.$store.getters.userid}}).then(res=> {
 					if (res.success) {
 						for (let item of res.result){

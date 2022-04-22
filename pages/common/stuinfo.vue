@@ -4,7 +4,6 @@
 			<cu-custom bgColor="bg-gradual-pink" :isBack="true">
 				<block slot="backText">返回</block>
 				<block slot="content">用户信息</block>
-<!-- 				<view slot="right"  @tap="rightClick">新增 </view> -->
 				<view slot="right"  @tap="rightClick"> 导入</view>
 			</cu-custom>
 			
@@ -33,7 +32,6 @@
 					</view>
 					<view  @tap="editClick(item.id)">编辑</view> 
 					<view  @tap="delClick(item.id)">删除</view> 
-					 <!-- v-if="item.userid==localuserid" -->
 				</view>
 			</view>
 		</scroll-view>

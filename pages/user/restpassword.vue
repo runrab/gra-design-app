@@ -42,16 +42,10 @@
 
 <script>
     import myDate from '@/components/my-componets/my-date.vue'
+	import api from "@/api/api";
     export default {
         name: "restpassword",
         components:{myDate},
-        // props:{
-        //   formData:{
-        //       type:Object,
-        //       default:()=>{},
-        //       required:false
-        //   },
-        // },
         data(){
             return {
 				CustomBar: this.CustomBar,
@@ -90,24 +84,21 @@
                 let url = '/sys/user/restPassword';
 				// myForm.username=this.$store.getters.username
 				this.$http.post(url,model).then(res=>{
-				   console.log("res",res)
-				   conslog.toLocaleString(res.data.success)
 				   this.loading = false
 				   if(res.data.success){
-					   this.$tip.success('密码重置成功!')
-					   // uni.redirectTo({
-					   // 	url:'/pages/login/login'
-					   // })
-				   }else{
-					   this.$tip.success('密码重置失败!')
+					 // this.$Router.push({name:'login'})
+					 // this.$tip.success('密码修改成功')
 				   }
 				}).catch(()=>{
+					// this.$tip.error('密码修改失败!')
 					this.loading = false
 				});
-				//提交完成重定向到登录界面
-				// uni.redirectTo({
-				// 	url:'/pages/login/login'
-				// })
+				api.logout().then(res=>{
+					uni.clearStorageSync()
+				})
+				uni.redirectTo({
+					url:'/pages/user/userexit'
+				})
             }
         }
     }

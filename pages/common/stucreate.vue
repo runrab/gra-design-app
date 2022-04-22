@@ -4,6 +4,11 @@
 			<block slot="content">学生新增</block>
 		</cu-custom>
 		 <!--表单区域-->
+		 
+		 
+		
+		 
+		 
 		<view>
 			<form>
               <view class="cu-form-group">
@@ -110,12 +115,11 @@
                 let myForm = {...this.model};
                 this.loading = true;
                 let url = this.url.add;
-				myForm.identity='0'//1代表教师 0学生 -1删除 2 代表管理员
-				// myForm.visible='1' //0全体可见 1不可见 
-				myForm.visible='0'
+				myForm.identity=getApp().globalData.ALL.IDENTITY_STU //学生
+				myForm.visible=getApp().globalData.ALL.VISIBLE_ALL
 				//非用户表数据
 				// 学生角色对应编码 固定数
-				myForm.selectedroles="1260924539346472962"
+				myForm.selectedroles=getApp().globalData.ROLE_STU
 				myForm.selecteddeparts=this.$store.getters.depId
 				this.$http.post(url,myForm).then(res=>{
 				   this.loading = false

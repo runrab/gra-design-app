@@ -62,9 +62,6 @@
                 },
                 "oauth" : {},
                 "geolocation" : {
-                    "system" : {
-                        "__platform__" : [ "android" ]
-                    },
                     "baidu" : {
                         "__platform__" : [ "android" ],
                         "appkey_ios" : "",

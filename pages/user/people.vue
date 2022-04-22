@@ -28,7 +28,7 @@
 		    <view class="cu-item arrow animation-slide-bottom" :style="[{animationDelay: '0.2s'}]">
 		      <view class="content">
 		        <text class="cuIcon-redpacket_fill text-red"></text>
-		        <text class="text-grey">红包</text>
+		        <text class="text-grey">帮助</text>
 		      </view>
 		    </view>
 			<view class="cu-item arrow animation-slide-bottom" :style="[{animationDelay: '0.3s'}]" @tap="scan">

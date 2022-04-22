@@ -1,11 +1,25 @@
 <template>
     <view>
 		<cu-custom bgColor="bg-gradual-pink" :isBack="true">
-			<block slot="content">信息填写</block>
+			<block slot="content">留言发布</block>
 		</cu-custom>
-		 <!--表单区域-->
 		<view>
-			<form>
+		<view class="cu-form-group">
+		<uni-forms class="padding flex flex-direction" ref="valiForm" :rules="rules" :modelValue="model">
+			<uni-forms-item label="可见性" required name="visible">
+				<uni-data-checkbox v-model="model.visible" :localdata="visibleData" />
+			</uni-forms-item>
+			<uni-forms-item label="消息"  required name="context">
+				<uni-easyinput type="textarea" v-model="model.context" placeholder="请输入留言消息" />
+			</uni-forms-item>		
+		</uni-forms>
+		</view>	
+		<view class="padding flex flex-direction">
+			<button class="cu-btn bg-green shadow-blur round lg" @click="onSubmit">
+				<text v-if="loading" class="cuIcon-loading2 cuIconfont-spin"></text>提交
+			</button>
+		</view>
+<!-- 			<form>
 				<view class="cu-form-group">
 				<view class="flex align-center">
 						<app-select label="可见性：" v-model="visible" placeholder="请选择类型" :dict="plan_type" space ></app-select>
@@ -19,13 +33,12 @@
 						<text v-if="loading" class="cuIcon-loading2 cuIconfont-spin"></text>提交
 					</button>
 				</view>
-			</form>
+			</form> -->
 		</view>
     </view>
 </template>
 
 <script>
-	const plan_type = [{text:'全体可见',value:'1'},{text:'仅自己可见',value:'0'},{text:'部分可见',value:'2'}];
     import myDate from '@/components/my-componets/my-date.vue'
 	import appSelect from '@/components/my-componets/appSelect.vue'
 
@@ -44,15 +57,38 @@
 				CustomBar: this.CustomBar,
 				NavBarColor: this.NavBarColor,
 				loading:false,
-                model: {},
-				plan_type,
-				visible:'',
+                model: {
+					
+				},
                 backRouteName:'index',
-                url: {
-                  queryById: "/runrab/message/queryById",
-                  add: "/runrab/message/add",
-                  edit: "/runrab/message/edit",
-                },
+				useUrl:"/runrab/message/add",
+				depId:'',
+				// 单选数据源
+				visibleData: [{
+					text: '全部',
+					value: getApp().globalData.ALL.VISIBLE_ALL
+				}, {
+					text: '个人',
+					value: getApp().globalData.ALL.VISIBLE_GE
+				}, {
+					text: '组织',
+					value: getApp().globalData.ALL.VISIBLE_ORG
+				}],
+				rules: {
+					visible: {
+						rules: [{
+							required: true,
+							errorMessage: '可见行必选'
+						}]
+					},
+					context:{
+						rules: [{
+							required: true,
+							errorMessage: '内容不能为空'
+						}]
+					},
+					
+				},
             }
         },
         created(){
@@ -71,34 +107,29 @@
                 }
             },
             onSubmit() {
-                let myForm = {...this.model};
-                this.loading = true;
-                let url = myForm.id?this.url.edit:this.url.add;
-				myForm.identity='1'//1代表教师 0学生 -1删除
-				// myForm.visible='1' //0不可见 1可见 
-				myForm.visible=this.visible
-				myForm.userid=this.$store.getters.userid
-				myForm.createBy=this.$store.getters.username
-				console.log(myForm.username)
-				this.$http.post(url,myForm).then(res=>{
-				   console.log("res",res)
-				   this.loading = false
-				   this.$Router.push({name:'messagedetail'})
-				   this.$tip.success('发布成功')
-				}).catch(()=>{
+				this.$refs["valiForm"].validate().then(res => {
+					let myForm = {...this.model};
+					this.loading = true;
+					let url = this.useUrl;
+					myForm.identity=this.$store.getters.identity //1代表教师 0学生 -1删除
+					myForm.visible=this.model.visible
+					myForm.userid=this.$store.getters.userid
+					myForm.createBy=this.$store.getters.username
+					this.$http.post(url,myForm).then(res=>{
 					this.loading = false
-				});
-				//提交完成重定向到留言板
-				// uni.redirectTo({
-				// 	url:'/pages/common/messagedetail'
-				// })
+					this.$Router.push({name:'messagedetail'})
+					this.$tip.success('发布成功')
+					}).catch(()=>{
+						this.loading = false
+					});			
+				}).catch(err => {
+					console.log('err', err);
+				})
             }
         }
     }
 </script>
-
 <style lang="scss">
-
 	.example {
 		padding: 15px;
 		background-color: #fff;

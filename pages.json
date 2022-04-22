@@ -269,6 +269,16 @@
             }
             
         }
+		
+        ,{
+            "path" : "pages/common/aaaa",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"mp-alipay": {

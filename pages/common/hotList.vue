@@ -1,17 +1,27 @@
 <template>
 	<view>
-		<view class="charts-box" style="height: 400px;">
-			<qiun-data-charts type="map" :opts="{extra:{map:{mercator:true}}}" :chartData="chartsDataMap1"/>
-		</view>
 		<scroll-view scroll-y class="page">
 			<cu-custom bgColor="bg-gradual-pink" :isBack="true">
 				<block slot="content">热门城市排行</block>
 			</cu-custom>
-			<view class="charts-box">
-			  <qiun-data-charts type="bar" :opts="{color:['#FAC858','#00e7ae'],xAxis:{max:maxNum},extra:{bar:{linearType:'custom',barBorderCircle:true}}}" :chartData="chartsDataColumn1"/>
+			<view>
+			  <uni-section title="全国地图" type="line">
+				  <view class="charts-box" style="height: 400px;">
+				  	<qiun-data-charts type="map" :opts="{extra:{map:{mercator:true}}}" :chartData="chartsDataMap1"/>
+				  </view>
+			  </uni-section>
 			</view>
-			<view class="action" v-for="(item,index) in list" :key="index">
-				<text class="text-grey" space="emsp" style="color: #ee2746;">编号: {{index++}}: 城市: {{item}} </text>
+			
+
+			<view>
+				<uni-section title="人数排行" type="line">
+					<view class="charts-box">
+						<qiun-data-charts type="bar" :opts="{color:['#FAC858','#00e7ae'],xAxis:{max:maxNum},extra:{bar:{linearType:'custom',barBorderCircle:true}}}" :chartData="chartsDataColumn1"/>
+					</view>
+					<view class="action" v-for="(item,index) in list" :key="index">
+						<text class="text-grey" space="emsp" style="color: #ee2746;">编号: {{index++}}: 城市: {{item}} </text>
+					</view>
+				</uni-section>
 			</view>
 		</scroll-view>
 	</view>

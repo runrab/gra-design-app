@@ -5,22 +5,22 @@
 		</cu-custom>
   <view class="content">
 
-	<text> 填写进度</text>
-    <view class="charts-box">
-      <qiun-data-charts type="arcbar" :opts="{title:{name:progress,color:'#2fc25b',fontSize:35},subtitle:{name:'填写率',color:'#666666',fontSize:25}}" :chartData="chartsDataArcbar1"/>
-    </view>
-<!-- 	<text> 男女比率</text>
-	<view class="charts-box">
-	  <qiun-data-charts type="ring" :opts="{legend:{position: 'bottom'},extra:{ring:{ringWidth: 60,linearType:'custom',centerColor:'#FF0'}}}" :chartData="chartsDataRing1"/>
-	</view> -->
-	<text> 男女比率</text>
-	<view class="charts-box">
-	  <qiun-data-charts type="ring" :opts="{legend:{position: 'bottom'},extra:{ring:{ringWidth: 60,linearType:'custom',centerColor:'#FF0'}}}" :chartData="chartsDataRing1"/>
-	</view>
-	<text> 女性选择城市图</text>
-	<view class="charts-box">
-	  <qiun-data-charts type="rose" :opts="{legend:{position: 'bottom'}}" :chartData="chartsDataRose1"/>
-	</view>
+
+	<uni-section title="填写进度" type="line">
+		<view class="charts-box">
+			<qiun-data-charts type="arcbar" :opts="{title:{name:progress,color:'#2fc25b',fontSize:35},subtitle:{name:'填写率',color:'#666666',fontSize:25}}" :chartData="chartsDataArcbar1"/>
+		</view>
+	</uni-section>
+	<uni-section title="男女比率" type="line">
+		<view class="charts-box">
+		<qiun-data-charts type="ring" :opts="{legend:{position: 'bottom'},extra:{ring:{ringWidth: 60,linearType:'custom',centerColor:'#FF0'}}}" :chartData="chartsDataRing1"/>
+		</view>
+	</uni-section>
+	<uni-section title="女性选择城市图" type="line">
+		<view class="charts-box">
+			<qiun-data-charts type="rose" :opts="{legend:{position: 'bottom'}}" :chartData="chartsDataRose1"/>
+		</view>
+	</uni-section>
 	
 <!--   去向城市 -->
     <view class="charts-box">

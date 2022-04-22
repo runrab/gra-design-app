@@ -218,7 +218,13 @@ const routes = [
 	        title: '帮助中心',
 	    },
 	},
-	
+	{
+	    path: '/pages/common/aaaa',
+	    name: 'aaaa',
+	    meta: {
+	        title: '新',
+	    },
+	},
 	
 	
 	

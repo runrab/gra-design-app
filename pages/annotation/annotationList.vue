@@ -137,19 +137,19 @@
 			// },
 			upCallback(page) {
 				//联网加载数据
-				console.log("tabindex",this.TabCur )
+				// console.log("tabindex",this.TabCur )
 				let keyword = this.TabCur
 				if(keyword == 0){
 					this.$http.get(this.url,{params:{pageNo: page.num, pageSize:page.size,msgCategory: '1'}}).then(res=>{
 						//联网成功的回调,隐藏下拉刷新和上拉加载的状态;
-						// this.announcement1 = res.data.result.records  
+						this.announcement1 = res.data.result.records  
 						this.announcement1 = res.data.result  //不分页导致层级变了
-						console.log(res.data.result)
+						// console.log(res.data.result)
 						this.mescroll.endSuccess(this.announcement1.length);
 						//console.log("url", res)
 						//设置列表数据
 						  if (res.data.success) {
-							 console.log("res",res.data)
+							 // console.log("res",res.data)
 							 this.msg1Count = res.data.result.total
 							 this.msg1Title = "通知(" + res.data.result.total + ")";
 							 for(let annItem of this.announcement1){
@@ -177,13 +177,17 @@
 							  console.log("res sys",res.data)
 							 this.msg2Count = res.data.result.total
 							 this.msg2Title = "通知(" + res.data.result.total + ")";
+							 
+							 
 							 // this.announcement2.filter((item,index) => {
 							 // // console.log("item",item)
 							 //  if(item.anntId == this.announcement2[index+1].anntId){
 								//   this.announcement2.splice(item,1)
+								  
 								  for(let item of this.announcement2){
 									  this.msgList.push(item)							
 								  }
+								  
 							//   }
 							// })
 						 }

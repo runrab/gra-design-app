@@ -102,14 +102,12 @@
 					departIds:'',
 					identity:'',
 					cityName:'',
-					visible:'0',
+					visible: getApp().globalData.ALL.VISIBLE_ALL,
 				},
 			};
 		},
 		onLoad: function (option) {  
-			// let query=this.$Route.query
 			this.userId=this.$Route.query.userId
-			
 			this.$http.get(this.userUrl,{params:{id:this.userId}}).then(res=> {
 				if (res.data.success) {
 					let result = res.data.result
@@ -125,18 +123,15 @@
 					this.personalMsg.phone= result.phone
 					this.personalMsg.telephone= result.telephone== null?'无':result.telephone
 					this.personalMsg.email= result.email
-					this.personalMsg.post= result.post
 					this.personalMsg.identity= result.identity=== 1?'普通成员':'上级'
 					this.personalMsg.status= result.status === 1?'正常':'冻结'
 					this.personalMsg.orgCode= result.orgCode
 					this.personalMsg.cityName= result.cityName
-					this.personalMsg.visible='0'
+					this.personalMsg.visible=this.$store.getters.visible
 				}
 			}).catch(e=>{
 				console.log("请求错误",e)
 			})
-			
-			
 			this.$http.get(this.departUrl,{params:{userId:this.userId}}).then(res=> {
 				if (res.success) {
 					for (let item of res.result){
@@ -147,7 +142,6 @@
 			}).catch(e=>{
 				console.log("请求错误",e)
 			})
-			
 			this.$http.get(this.positionUrl).then(res=> {
 				if (res.success) {
 					let postArr = res.result.records
@@ -187,8 +181,6 @@
 				  this.myFormData.status = 2
 				}
 				 this.Avatar=this.myFormData.avatar
-	
-	
 				Object.keys(this.myFormData).map(key=>{
 				  if(this.myFormData[key]=='无'){
 					this.myFormData[key] = ''

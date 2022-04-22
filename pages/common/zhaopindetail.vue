@@ -42,13 +42,14 @@
 					</view>
 				</view> -->
 <!-- 			</view> -->
+
+			<uni-section title="招聘信息" type="circle">
 			<view class="cu-list menu" v-for="(item,index) in list" :key="index">
 				<view class="cu-item animation-slide-bottom" > 
-				<!-- :style="[{animationDelay: '1s'}] -->
-						<view class="action" v-html="item.context"></view>
-						<!-- <text class="text-grey">{{item.context}}</text> -->
+					<view class="action" v-html="item.context"></view>
 				</view>	
 				<view class="cu-item animation-slide-bottom" > 
+					<text class="text-grey" space="ensp">{{item.company}} </text> 
 					<text class="text-grey" space="ensp">{{item.createTime}} </text>  
 					<view class="action" v-if="item.userid!=localuserid">
 						<text class="text-grey" space="ensp">{{item.createBy}} </text>  
@@ -59,6 +60,7 @@
 					<view  @tap="delClick(item.id)" v-if="item.userid==localuserid">删除</view>
 				</view>
 			</view>
+			</uni-section>
 		</scroll-view>
 	</view>
 </template>

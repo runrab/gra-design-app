@@ -20,10 +20,13 @@
 				</view>
 			</view>
 			<view class="cu-item" v-for="(item,index) in childrenUserList" :key="index" @click="goMemberInfo(item)">
-				<view class="cu-avatar round lx" :style="[{backgroundImage:'url('+ item.avatar +')'}]"></view>
+			<view class="cu-avatar round lx" :style="[{backgroundImage:'url('+ item.avatar +')'}]"  v-if="item.visible == visibleMark "></view>
 				<view class="content margin-left-sm">
-					<view class="text-grey">{{item.realname}}</view>
-				</view>
+					<view class="text-grey" v-if="item.visible == visibleMark ">{{item.realname}}</view>
+				</view>	
+			</view>
+				<!-- {{item.visible}} -->
+
 			</view>
 		</view>
 	</view>
@@ -49,7 +52,8 @@ export default {
 			// departUrl:'/sys/user/userDepartList',
 			level:0,
 			titleArray:[],
-			parentId:''
+			parentId:'',
+			visibleMark: getApp().globalData.ALL.VISIBLE_ALL ,
 		}
 	},
 	computed:{
@@ -188,8 +192,8 @@ export default {
 			}
 		},
 		goMemberInfo: function (item){
-			console.log("item",item)
 			
+			console.log("item",item)
 			let parmas = {...item}
 			console.log("parmas",parmas)
 			parmas.page='levelAddressBook'
