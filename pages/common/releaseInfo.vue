@@ -50,7 +50,6 @@
 </template>
 
 <script>
-	const plan_type = [{text:'全体',value:'ORG'},{text:'指定用户',value:'USER'}];
     import myDate from '@/components/my-componets/my-date.vue'
 	import appSelect from '@/components/my-componets/appSelect.vue'
 
@@ -70,10 +69,8 @@
 				NavBarColor: this.NavBarColor,
 				loading:false,
                 model: {},
-				sendTime:'',
-				pushForm:{},
-				plan_type,
 				visible:'',
+				rid:'',
                 backRouteName:'index',
                 url: {
                   add: "/sys/annountCement/appAdd",
@@ -134,36 +131,25 @@
 				this.$refs["valiForm"].validate().then(res => {
 					let myForm = {...this.model};
 					this.loading = true;
-					// let url = myForm.id?this.url.edit:this.url.add;
 					let url = this.url.add;
-						// "endTime": 1651216501000,
-						// "msgAbstract": "bbbb",
-						// "msgCategory": "1",
-						// "msgContent": "<p>bbbb</p>",
-						// "msgType": "USER",
-						// "priority": "H",
-						// "titile": "bbbb",
 					myForm.msgContent=this.model.msgAbstract
-					// myForm.userIds="429376197808194306,"
 					myForm.userIds=this.$store.getters.userid+','
-					myForm.priority="H"
+					myForm.priority=this.model.priority
 					myForm.msgCategory="1"
-					myForm.endTime=1651216501000
-					myForm.sendTime=new Date().getTime().toString()
 					myForm.sendStatus="1"
+					console.log(this.$store.getters.userid)
 					myForm.sender=this.$store.getters.username
-					this.sendTime=new Date().getTime().toString()
-					myForm.msgType="ORG"
+					myForm.endTime=this.model.endTime
+					myForm.msgType="ORG" 
+					myForm.createBy=this.$store.getters.username
 					this.$http.post(url,myForm).then(res=>{
 					   this.loading = false
-					   // this.$Router.push({name:'annotationList'})
+					   this.rid = res.message
+					   console.log(res.message)
 					});
 					let urlPush = this.url.push;
 					//发布消息
-					this.pushForm.sendTime=this.sendTime
-					this.pushForm.createBy=this.$store.getters.username
-					console.log("111111!")
-					this.$http.post(urlPush,pushForm).then(res=>{
+					this.$http.get(urlPush+"?id="+this.rid).then(res=>{
 					   this.loading = false
 					   this.$Router.push({name:'index'})
 					   console.log("sucess!")
