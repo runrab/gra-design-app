@@ -7,7 +7,7 @@
 				<view slot="right"  @tap="rightClick">发布</view>
 			</cu-custom>
 			<uni-section title="留言内容" type="line">
-			<view class="cu-list menu" v-for="(item,index) in list" :key="index" v-if="item.visible==1||item.userid==localuserid">
+			<view class="cu-list menu" v-for="(item,index) in list" :key="index" v-if="item.visible==0||item.userid==localuserid">
 				<view class="cu-item animation-slide-bottom" > 
 					<view class="action" v-html="item.context">
 					</view>

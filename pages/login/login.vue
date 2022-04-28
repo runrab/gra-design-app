@@ -78,8 +78,8 @@
             return {
 				shape:'',//round 圆形
 				loading: false,
-				userName: 'demo',
-				password: '123456',
+				userName: 'demo12',
+				password: '1qaz!QAZ',
 				phoneNo: '',
 				smsCode: '',
 				showPassword: false, //是否显示明文

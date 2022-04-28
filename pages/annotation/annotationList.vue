@@ -151,6 +151,7 @@
 						  if (res.data.success) {
 							 // console.log("res",res.data)
 							 this.msg1Count = res.data.result.total
+							 console.log(res.data.result.total)
 							 this.msg1Title = "通知(" + res.data.result.total + ")";
 							 for(let annItem of this.announcement1){
 									 this.msgList.push(annItem)							
@@ -162,7 +163,7 @@
 						}
 						
 					}).catch(()=>{
-						//联网失败, 结束加载
+						//联网失败, 结束/*  */加载
 						this.mescroll.endErr();
 					})
 				}
